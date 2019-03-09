@@ -1,6 +1,7 @@
-import firebase from 'firebase/app'
+
 import 'firebase/firestore'
 import 'firebase/auth'
+import * as firebase from "firebase"
 
 // Initialize Firebase
 var config = {

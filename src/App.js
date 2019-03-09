@@ -6,6 +6,8 @@ import ProjectDetails from './components/projects/ProjectDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import CreateProject from './components/projects/CreateProject'
+import ToDoList from './components/ToDo/ToDoList'
+import customerquery from './components/customerquery/customerquery'
 
 class App extends Component {
   render() {
@@ -19,6 +21,8 @@ class App extends Component {
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/create' component={CreateProject} />
+            <Route path='/todo' component={ToDoList} />
+            <Route path='/customerquery' component={customerquery} />
           </Switch>
         </div>
       </BrowserRouter>
