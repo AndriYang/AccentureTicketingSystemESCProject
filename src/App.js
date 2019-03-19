@@ -8,6 +8,7 @@ import SignUp from './components/auth/SignUp'
 import CreateProject from './components/projects/CreateProject'
 import ToDoList from './components/ToDo/ToDoList'
 import customerquery from './components/customerquery/customerquery'
+import Frontpage from './components/frontpage/Frontpage'
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
         <div className="App">
           <Navbar/>
           <Switch>
-            <Route exact path='/' component={Dashboard} />
+            <Route exact path='/' component={Frontpage} />
+            <Route exact path='/dashboard' component={Dashboard} />
             <Route path='/project/:id' component={ProjectDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
