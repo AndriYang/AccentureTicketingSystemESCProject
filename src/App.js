@@ -3,11 +3,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
 import ProjectDetails from './components/projects/ProjectDetails'
+import AdminSignIn from './components/auth/AdminSignIn'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import CreateProject from './components/projects/CreateProject'
 import ToDoList from './components/ToDo/ToDoList'
 import customerquery from './components/customerquery/customerquery'
+import guesscustomerquery from './components/customerquery/guesscustomerquery'
 import Frontpage from './components/frontpage/Frontpage'
 import About from './components/frontpage/About'
 import replyQuery from './components/ToDo/replyQuery'
@@ -28,8 +30,10 @@ class App extends Component {
             <Route path='/create' component={CreateProject} />
             <Route path='/todo' component={ToDoList} />
             <Route path='/customerquery' component={customerquery} />
+            <Route path='/guesscustomerquery' component={guesscustomerquery} />
             <Route path='/aboutus' component={About} />
             <Route path='/replyquery' component ={replyQuery} />
+            <Route path='/admin' component = {AdminSignIn} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import * as actions from "../../store/todoactions";
 import ToDoListItem from "./ToDoListItem";
+import { Redirect } from 'react-router-dom'
 
 class ToDoList extends Component {
   state = {
@@ -89,6 +90,9 @@ class ToDoList extends Component {
 
 
   renderToDos() {
+    const { auth,  authError } = this.props;
+    if (!auth.uid) return<Redirect to='/signin' />
+
     const { data } = this.props;
     const toDos = _.map(data, (value, key) => {
       return(
@@ -135,9 +139,11 @@ class ToDoList extends Component {
   }
 }
 
-const mapStateToProps = ({ data }) => {
+const mapStateToProps = (state,{ data }) => {
   return {
-    data
+    data,
+    auth: state.firebase.auth,
+    authError: state.auth.authError
   };
 };
 

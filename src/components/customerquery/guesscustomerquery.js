@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createForm } from '../../store/actions/formActions'
 
 
-class customerquery extends Component {
+class guesscustomerquery extends Component {
   state = {
     sel: '',
     email: '',
@@ -43,7 +43,10 @@ class customerquery extends Component {
                       </select>
                   </div>
                 </div>
-                
+                <div className="input_email">
+                  <label htmlFor="email">Email Address:</label>
+                  <input type="text" id="email" onChange={this.handleChange}/>
+                </div>
               <textarea id="txt" name="name" rows="8" cols="80" onChange={this.handleChange}></textarea>
 
               <button id="but">Submit</button>
@@ -60,4 +63,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect(null, mapDispatchToProps)(customerquery);
+export default connect(null, mapDispatchToProps)(guesscustomerquery);

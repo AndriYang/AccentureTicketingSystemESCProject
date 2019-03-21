@@ -13,7 +13,7 @@ const Frontpage = () => {
       <div className="card-content">
         <div className="row ">
           <div class="col s12 m12 l12 offset-s6 center-align ">
-            <Link to='/signin' class="btn-large  purple darken-3"> Admin </Link>
+            <Link to='/admin' class="btn-large  purple darken-3"> Admin </Link>
           </div>
         </div>
         <div className="row">
@@ -22,7 +22,7 @@ const Frontpage = () => {
           </div>
         </div>
         <div class="offset-s6 center-align z-depth-0">
-          <Link to='/customerquery' class="btn-large  purple darken-3"> Guess </Link>
+          <Link to='/guesscustomerquery' class="btn-large  purple darken-3"> Guess </Link>
         </div>
 
       </div>
