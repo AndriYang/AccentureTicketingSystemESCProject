@@ -4,6 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
+import { Link } from 'react-router-dom'
 
 const ProjectDetails = (props) => {
   //const id = props.match.params.id;
@@ -21,6 +22,9 @@ const ProjectDetails = (props) => {
           <div className="card-action gret lighten-4 grey-text">
             <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
             <div>{moment(project.createdAt.toDate()).calendar()}</div>
+          </div>
+          <div class="offset-s6 left-align z-depth-0">
+            <Link to='/replyquery' class="btn-small  purple darken-3"> Reply </Link>
           </div>
         </div>
       </div>

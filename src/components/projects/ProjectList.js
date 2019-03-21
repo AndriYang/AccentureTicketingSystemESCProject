@@ -10,6 +10,7 @@ const ProjectList = ({projects}) => {
             <Link to={'/project/' + project.id} key={project.id} >
             <ProjectSummary project={project} />
             </Link>
+
           )
         })}
     </div>
