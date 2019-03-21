@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 class CreateProject extends Component {
   state = {
+    sel: '',
     title: '',
     content: ''
   }
@@ -29,7 +30,16 @@ class CreateProject extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Create New Ticket</h5>
+          <h5 className="grey-text text-darken-3">Contact Us</h5>
+          <div class ="col s3">
+              <label id= "category">Category:</label>
+              <select class="browser-default" id= "sel" onChange={this.handleChange}>
+                <option value="sel">Please Select One</option>
+                <option value="finance">Finance</option>
+                <option value="it">IT</option>
+                <option value="general">General</option>
+              </select>
+          </div>
           <div className="input-field">
             <label htmlFor="title">Title</label>
             <input type="text" id="title" onChange={this.handleChange}/>

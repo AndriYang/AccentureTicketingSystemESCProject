@@ -10,6 +10,7 @@ class ToDoListItem extends Component {
 
   render() {
     const { todoId, todo, checkedPassword, checkedTech, checkedRecruit } = this.props;
+    //console.log(this.props);
     if(todo.category=="Technical Issue"){
       if(checkedTech==true){
         return (
