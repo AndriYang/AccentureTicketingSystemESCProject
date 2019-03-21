@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { completeToDo } from "../../store/todoactions";
+import { Link } from 'react-router-dom'
 
 class ToDoListItem extends Component {
   handleCompleteClick = completeToDoId => {
@@ -24,6 +25,9 @@ class ToDoListItem extends Component {
               </span>
             <h5 >{todo.category}</h5>
             <h6>{todo.content}</h6>
+            <div class="offset-s6 center-align z-depth-0">
+              <Link to='/replyquery' class="btn-large  purple darken-3"> Reply </Link>
+            </div>
           </div>
         );
       }else{return null}
@@ -40,6 +44,9 @@ class ToDoListItem extends Component {
                 </span>
               <h5 >{todo.category}</h5>
               <h6>{todo.content}</h6>
+              <div class="offset-s6 center-align z-depth-0">
+                <Link to='/replyquery' class="btn-large  purple darken-3"> Reply </Link>
+              </div>
             </div>
           );
         }else{return null}
@@ -56,6 +63,9 @@ class ToDoListItem extends Component {
                 </span>
               <h5 >{todo.category}</h5>
               <h6>{todo.content}</h6>
+              <div class="offset-s6 center-align z-depth-0">
+                <Link to='/replyquery' class="btn-large  purple darken-3"> Reply </Link>
+              </div>
             </div>
           );
         }else{return null}

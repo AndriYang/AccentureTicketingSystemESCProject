@@ -10,6 +10,7 @@ import ToDoList from './components/ToDo/ToDoList'
 import customerquery from './components/customerquery/customerquery'
 import Frontpage from './components/frontpage/Frontpage'
 import About from './components/frontpage/About'
+import replyQuery from './components/ToDo/replyQuery'
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path='/todo' component={ToDoList} />
             <Route path='/customerquery' component={customerquery} />
             <Route path='/aboutus' component={About} />
+            <Route path='/replyquery' component ={replyQuery} />
           </Switch>
         </div>
       </BrowserRouter>

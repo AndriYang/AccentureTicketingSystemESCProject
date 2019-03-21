@@ -6,6 +6,7 @@ import { createForm } from '../../store/actions/formActions'
 class customerquery extends Component {
   state = {
     sel: '',
+    email: '',
     txt: ''
   }
 
@@ -41,6 +42,10 @@ class customerquery extends Component {
                         <option value="general">General</option>
                       </select>
                   </div>
+                </div>
+                <div className="input_email">
+                  <label htmlFor="email">Email Address:</label>
+                  <input type="text" id="email" onChange={this.handleChange}/>
                 </div>
               <textarea id="txt" name="name" rows="8" cols="80" onChange={this.handleChange}></textarea>
 
