@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createProject }  from '../../store/actions/projectActions'
 import { Redirect } from 'react-router-dom'
 
-class CreateProject extends Component {
+export class CreateProject extends Component {
   state = {
     sel: '',
     title: '',
@@ -19,17 +19,17 @@ class CreateProject extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     //console.log(this.state)
-    this.props.createProject(this.state)
+    this.props.createProject(this.state);
     //send to home page
-    this.props.history.push('/')
+    this.props.history.push('/dashboard')
   }
 
   render() {
     const { auth } = this.props;
-    if (!auth.uid) return<Redirect to='/signin' />
+    //if (!auth.uid) return<Redirect to='/signin' />
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
+        <form onSubmit={this.handleSubmit} className="white" id="createForm">
           <h5 className="grey-text text-darken-3">Contact Us</h5>
           <div class ="col s3">
               <label id= "category">Category:</label>

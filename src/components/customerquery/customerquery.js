@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createForm } from '../../store/actions/formActions'
 
 
-class customerquery extends Component {
+export class customerquery extends Component {
   state = {
     sel: '',
     email: '',
@@ -43,7 +43,7 @@ class customerquery extends Component {
                       </select>
                   </div>
                 </div>
-                
+
               <textarea id="txt" name="name" rows="8" cols="80" onChange={this.handleChange}></textarea>
 
               <button id="but">Submit</button>

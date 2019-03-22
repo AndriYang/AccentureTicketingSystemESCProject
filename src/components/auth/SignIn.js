@@ -4,7 +4,7 @@ import { signIn } from '../../store/actions/authActions'
 import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-class SignIn extends Component {
+export class SignIn extends Component {
   state = {
     email: '',
     password: ''
@@ -23,11 +23,11 @@ class SignIn extends Component {
 
   render() {
     const { authError, auth } = this.props;
-    if (auth.uid) return<Redirect to='/customerquery' />
+    //if (auth.uid) return<Redirect to='/create' />
 
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
+        <form onSubmit={this.handleSubmit} className="white" id='loginForm'>
           <h5 className="grey-text text-darken-3">Sign in</h5>
           <div className="input-field">
             <label htmlFor="email">Email</label>

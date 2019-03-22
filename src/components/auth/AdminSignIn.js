@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signIn } from '../../store/actions/authActions'
+import { adminsignIn } from '../../store/actions/authActions'
 import { Redirect } from 'react-router-dom'
 
-class AdminSignIn extends Component {
+export class AdminSignIn extends Component {
   state = {
     email: '',
     password: ''
@@ -17,16 +17,16 @@ class AdminSignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.signIn(this.state);
+    this.props.adminsignIn(this.state);
   }
 
   render() {
     const { authError, auth } = this.props;
-    if (auth.uid) return<Redirect to='/todo' />
+    //if (auth.uid) return<Redirect to='/todo' />
 
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
+        <form onSubmit={this.handleSubmit} className="white" id="adminLoginForm">
           <h5 className="grey-text text-darken-3">Sign in</h5>
           <div className="input-field">
             <label htmlFor="email">someone@accenture.com</label>
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn: (creds) => dispatch(signIn(creds))
+    adminsignIn: (creds) => dispatch(adminsignIn(creds))
   }
 }
 

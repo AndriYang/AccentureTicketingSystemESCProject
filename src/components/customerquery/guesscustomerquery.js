@@ -21,6 +21,7 @@ class guesscustomerquery extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createForm(this.state);
+    this.props.history.push('/aboutus')
   }
 
 
