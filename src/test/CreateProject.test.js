@@ -49,8 +49,7 @@ configure({ adapter: new Adapter() });
       //simulate from submission
       wrapper.find('#createForm').simulate(
         'submit',
-        {preventDefault() {},.push('/dashboard'){}
-      }
+        {preventDefault() {}}
       )
 
       //test to see arguments used after its been submitted

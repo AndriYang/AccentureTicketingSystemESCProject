@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
 
-const SignedInLink = (props) => {
+export const SignedInLink = (props) => {
   return (
     <ul className="right">
       <li><NavLink to='/create'>New Ticket</NavLink></li>

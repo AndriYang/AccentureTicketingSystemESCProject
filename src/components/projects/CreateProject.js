@@ -21,7 +21,7 @@ export class CreateProject extends Component {
     //console.log(this.state)
     this.props.createProject(this.state);
     //send to home page
-    this.props.history.push('/dashboard')
+    //this.props.history.push('/dashboard')
   }
 
   render() {

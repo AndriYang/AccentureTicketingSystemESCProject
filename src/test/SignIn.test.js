@@ -45,4 +45,5 @@ configure({ adapter: new Adapter() });
         {email: 'mario@net.com', password: 'test1234'}
       )
     })
+
   })
