@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "firebase": "^5.8.3",
     "moment": "^2.24.0",
     "react": "^16.8.2",
