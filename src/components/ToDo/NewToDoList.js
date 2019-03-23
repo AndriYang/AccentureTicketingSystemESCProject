@@ -1,12 +1,12 @@
-//import "./ToDoList.css";
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
+import NewToDoListItem from "./NewToDoListItem";
 import _ from "lodash";
-import * as actions from "../../store/todoactions";
-import ToDoListItem from "./ToDoListItem";
 
-
-class ToDoList extends Component {
+class NewToDoList extends Component {
   state = {
     addFormVisible: false,
     addFormValue: "",
@@ -15,21 +15,22 @@ class ToDoList extends Component {
     checkedTech: true
   };
 
-  handleInputChange = event => {
-    this.setState({ addFormValue: event.target.value });
-  };
+  // handleInputChange = event => {
+  //   this.setState({ addFormValue: event.target.value });
+  // };
 
-  handleFormSubmit = event => {
-    const { addFormValue } = this.state;
-    const { addToDo } = this.props;
-    event.preventDefault();
-    addToDo({ title: addFormValue });
-    this.setState({ addFormValue: "" });
-  };
+  // handleFormSubmit = event => {
+  //   const { addFormValue } = this.state;
+  //   const { addToDo } = this.props;
+  //   event.preventDefault();
+  //   addToDo({ title: addFormValue });
+  //   this.setState({ addFormValue: "" });
+  // };
 
   handleCheckTech = event =>{
     this.setState({checkedTech: !this.state.checkedTech});
   }
+
   renderCheckboxTech = () =>{
     return (<div>
       <form action="#">
@@ -47,10 +48,10 @@ class ToDoList extends Component {
   );
   }
 
-
   handleCheckPassword = event =>{
     this.setState({checkedPassword: !this.state.checkedPassword});
   }
+
   renderCheckboxPassword = () =>{
     return (<div>
       <form action="#">
@@ -88,18 +89,19 @@ class ToDoList extends Component {
   );
   }
 
-
   renderToDos() {
-    const { data } = this.props;
-    const toDos = _.map(data, (value, key) => {
+    const { projects } = this.props;
+    const toDos = _.map(projects, (value, key) => {
       return(
       <div>
-        <ToDoListItem key={key} todoId={key} todo={value}
+        <NewToDoListItem key={key} todoId={key} todo={value}
           checkedTech={this.state.checkedTech}
           checkedRecruit={this.state.checkedRecruit}
           checkedPassword={this.state.checkedPassword}/>
       </div>
     );});
+
+
     if (!_.isEmpty(toDos)) {
       return toDos;
     }
@@ -116,13 +118,17 @@ class ToDoList extends Component {
     );
   }
 
-  componentWillMount() {
-    this.props.fetchToDos();
-  }
+  // componentWillMount() {
+  //   this.props.fetchToDos();
+  // }
 
   render() {
+    //console.log(this.props);
+    const { projects, auth } = this.props;
     const { addFormVisible } = this.state;
     //console.log(this.state);
+    if (!auth.uid) return<Redirect to='/' />
+
     return (
       <div className="to-do-list-container">
         <div className="row">
@@ -133,14 +139,18 @@ class ToDoList extends Component {
           {this.renderToDos()}
         </div>
       </div>
-    );
+
+    )
   }
 }
 
-const mapStateToProps = ({ data }) => {
+const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    data
-  };
-};
+    projects: state.firestore.ordered.projects,
+    auth: state.firebase.auth
+  }
+}
 
-export default connect(mapStateToProps, actions)(ToDoList);
+
+export default compose(connect(mapStateToProps),firestoreConnect([{ collection: 'projects' }]))(NewToDoList)

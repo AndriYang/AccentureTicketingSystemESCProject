@@ -13,6 +13,7 @@ import guesscustomerquery from './components/customerquery/guesscustomerquery'
 import Frontpage from './components/frontpage/Frontpage'
 import About from './components/frontpage/About'
 import replyQuery from './components/ToDo/replyQuery'
+import NewToDoList from './components/ToDo/NewToDoList'
 
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
             <Route path='/aboutus' component={About} />
             <Route path='/replyquery' component ={replyQuery} />
             <Route path='/admin' component = {AdminSignIn} />
+            <Route path='/newtodo' component={NewToDoList} />
           </Switch>
         </div>
       </BrowserRouter>

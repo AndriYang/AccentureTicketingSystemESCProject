@@ -22,7 +22,7 @@ export class AdminSignIn extends Component {
 
   render() {
     const { authError, auth } = this.props;
-    if (auth.uid) return<Redirect to='/todo' />
+    if (auth.uid) return<Redirect to='/dashboard' />
 
     return (
       <div className="container">
