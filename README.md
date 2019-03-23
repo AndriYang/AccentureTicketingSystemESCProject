@@ -4,6 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## To start sending email
+
+* Install Dependencies, at the root directory of the project run the 
+statement from below:
+* "npm add express cors @sendgrid/mail"
+* "npm install -g nodemon"
+* To run server, cd to server then use the statement below:
+* 'nodemon index.js'
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
