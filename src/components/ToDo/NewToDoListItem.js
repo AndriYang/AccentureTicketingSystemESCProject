@@ -31,7 +31,7 @@ class NewToDoListItem extends Component {
                 <div>{moment(todo.createdAt.toDate()).calendar()}</div>
               </div>
               <div class="offset-s6 left-align z-depth-0">
-                <Link to='/replyquery' class="btn-small  purple darken-3"> Reply </Link>
+                <Link to='/reply' class="btn-small  purple darken-3"> Reply </Link>
               </div>
             </div>
           </div>

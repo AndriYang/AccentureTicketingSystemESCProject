@@ -14,6 +14,7 @@ import Frontpage from './components/frontpage/Frontpage'
 import About from './components/frontpage/About'
 import replyQuery from './components/ToDo/replyQuery'
 import NewToDoList from './components/ToDo/NewToDoList'
+import NewReplyQuery from './components/ToDo/NewReplyQuery'
 
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
             <Route path='/replyquery' component ={replyQuery} />
             <Route path='/admin' component = {AdminSignIn} />
             <Route path='/newtodo' component={NewToDoList} />
+            <Route path='/reply' component={NewReplyQuery} />
           </Switch>
         </div>
       </BrowserRouter>
