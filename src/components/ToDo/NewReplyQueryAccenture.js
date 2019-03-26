@@ -14,12 +14,22 @@ class NewReplyQuery extends Component {
     }
   }
 
+
   sendEmail = _ => {
     const { email } = this.state;
-    fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`) //query string url
-      .catch(err => console.error(err))
+    // fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`) //query string url
+    //   .catch(err => console.error(err))
       // fetch(`https://ug-api.acnapiv3.io/swivel/email-services/api/mailer`) //query string url
       //   .catch(err => console.error(err))
+      // const response = await fetch('/express_backend');
+      // const body = await response.json();
+      //
+      // if (response.status !== 200) {
+      //   throw Error(body.message)
+      // }
+      // return body;
+      fetch(`http://localhost:4000/express_backend?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`).then(res=>console.log(res)).catch(err=>console.log(err));
+      // this.callBackendAPI().then(res => console.log(res)).catch(err => console.log(err));
 
   }
 

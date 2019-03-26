@@ -14,7 +14,8 @@ import Frontpage from './components/frontpage/Frontpage'
 import About from './components/frontpage/About'
 import replyQuery from './components/ToDo/replyQuery'
 import NewToDoList from './components/ToDo/NewToDoList'
-import NewReplyQuery from './components/ToDo/NewReplyQuery'
+// import NewReplyQuery from './components/ToDo/NewReplyQuery'
+import NewReplyQuery from './components/ToDo/NewReplyQueryAccenture'
 
 
 class App extends Component {
