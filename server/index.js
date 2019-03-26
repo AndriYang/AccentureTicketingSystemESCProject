@@ -39,8 +39,8 @@ var options = { method: 'POST',
    { 'Postman-Token': '9518b75f-e3c0-44aa-85ce-9afdfc7310a0',
      'cache-control': 'no-cache',
      'Content-Type': 'application/json',
-     'Server-Token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlF6Y3hRVEl5UkRVeU1qYzNSakEzTnpKQ01qVTROVVJFUlVZelF6VTRPRUV6T0RreE1UVTVPQSJ9.eyJpc3MiOiJodHRwczovL2FjbmFwaS1wcm9kLmF1dGgwLmNvbS8iLCJzdWIiOiI0ZFNobVBpOFRTM3pwd3NCVjBUNElseERndHcxSlJuNkBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9wbGFjZWhvbGRlci5jb20vcGxhY2UiLCJpYXQiOjE1NDk5NTI5MTksImV4cCI6MTU1MjU0NDkxOSwiYXpwIjoiNGRTaG1QaThUUzN6cHdzQlYwVDRJbHhEZ3R3MUpSbjYiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.iqbAGJ4SDMcZ-U8bBs-bzK2mllpD0jfGNnZbjUinX4wkVVLCG8AfjZsCYh14iQTlo4gyuoDx-QpMbpornGoJOH82TYTatH6H2YRCm4DIJfcjQq0PxLAH5OVIyA_9LMIDjvQ_vVg0IIdJa5hxUQGh5u4RD5-q8AMwGQyr3-8LD0wPHXOyfplUXuGjr5vHS-rzYmogSW6DXavjxSkZGPaFZKvxQ5k5QE5utti3Aph_TPpkiHGGArbhaWTdXZYTnkab9rmmxJPgRRu1ao2ijKS29W0C05bQg_AoXAhjifn_AVVwYZX0w4lx9mhif3Bvp6pSYiKNntnyJHBocw2VqyygSg' },
-  body:
+     'Server-Token': 'replace-with-your-own-server-token'},
+     body:
    { subject: 'test subject using ACNAPI',
      sender: 'limczevinkenneth@gmail.com',
      recipient: 'shanshan_peng@mymail.sutd.edu.sg',
