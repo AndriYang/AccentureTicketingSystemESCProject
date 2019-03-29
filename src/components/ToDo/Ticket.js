@@ -1,5 +1,5 @@
 import React from 'react'
-import ToDoList from './ToDoList'
+import Dashboard from '../dashboard/Dashboard'
 import { Link } from 'react-router-dom'
 
 const Ticket = ({projects}) => {

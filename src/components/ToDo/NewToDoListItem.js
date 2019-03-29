@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import { completeToDo } from "../../store/newtodoactions";
 import { Link } from 'react-router-dom'
-import ProjectList from '../projects/ProjectList'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { Redirect } from 'react-router-dom'
