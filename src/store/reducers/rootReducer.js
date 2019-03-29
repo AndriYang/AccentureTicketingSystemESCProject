@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
   data: dataReducer,
   form: formReducer,
   reply: replyReducer,
-  ticket: ticketReducer,
+  ticket: ticketReducer
 });
 
 export default rootReducer

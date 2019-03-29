@@ -12,6 +12,8 @@ import { reduxFirestore, getFirestore } from 'redux-firestore'
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
 import firebaseConfig from './config/firebaseConfig'
 
+// import 'milligram';
+
 const store = createStore(rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),

@@ -30,6 +30,13 @@ export class customerquery extends Component {
       <div className="container">
 
             <div>
+              <iframe
+                allow="microphone;"
+                width="350"
+                height="430"
+                src="https://console.dialogflow.com/api-client/demo/embedded/dabf61c4-4db6-44b3-9459-5517e7ad154e">
+              </iframe>
+
               <form onSubmit={this.handleSubmit} className="white">
               <h5 className="grey-text text-darken-3">Contact Us</h5>
                 <div class="row">
