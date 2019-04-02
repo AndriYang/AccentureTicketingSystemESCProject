@@ -32,6 +32,7 @@ class guesscustomerquery extends Component {
     email:'',
     caseId:0,
     toggle:false,
+    solveStatus:'',
     addFormVisible: false
   }
 
@@ -76,10 +77,11 @@ class guesscustomerquery extends Component {
 
     var uid2 = localStorage.getItem("cc-uid");
     console.log("uid2 is ",uid2);
-    this.setState({caseId: uid2}, function () {
+    this.setState({caseId: uid2, solveStatus: "processing"}, function () {
     console.log(this.state.caseId);
     this.props.createTicket(this.state);
     this.toggle();
+
 });
   }
 
@@ -228,7 +230,15 @@ handleNewUserMessage = newMessage => {
     );
   }
 };
-
+handleChangeCaseID= (e) => {
+  this.setState({
+    caseId: e.target.value
+  })
+}
+handleSubmitCaseID= (e) => {
+  e.preventDefault();
+  console.log(this.state.caseId)
+}
 componentWillUnmount() {
   CometChat.removeMessageListener(CUSTOMER_MESSAGE_LISTENER_KEY);
   CometChat.logout();
@@ -238,6 +248,13 @@ componentWillUnmount() {
     //if (!auth.uid) return<Redirect to='/signin' />
     return (
       <div className="container">
+      <form className="white" id="submit-case-id">
+      <div className="input-field">
+        <label htmlFor="intpuCaseId">Already have a case ID?</label>
+        <input type="text" id="input-case-id" onChange={this.handleChangeCaseID}/>
+      </div>
+      <button id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Submit</button>
+      </form>
       <Drawer
         open={this.state.toggle}
         onRequestClose={this.toggle}

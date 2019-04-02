@@ -16,9 +16,9 @@ const Frontpage = () => {
             <Link to='/admin' class="btn-large  purple darken-3"> Admin </Link>
           </div>
         </div>
-        <div class="offset-s6 center-align z-depth-0">
-          <Link to='/guesscustomerquery' class="btn-large  purple darken-3"> Guess </Link>
-        </div>
+          <div class="offset-s6 center-align z-depth-0">
+            <Link to='/guesscustomerquery' class="btn-large  purple darken-3"> Customer </Link>
+          </div>
 
       </div>
 
