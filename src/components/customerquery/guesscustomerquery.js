@@ -238,6 +238,8 @@ handleChangeCaseID= (e) => {
 handleSubmitCaseID= (e) => {
   e.preventDefault();
   console.log(this.state.caseId)
+  var caseId1 = this.state.caseId;
+  this.props.history.push(`/customerdashboard`,{caseId:caseId1})
 }
 componentWillUnmount() {
   CometChat.removeMessageListener(CUSTOMER_MESSAGE_LISTENER_KEY);
@@ -246,6 +248,7 @@ componentWillUnmount() {
 }
   render() {
     //if (!auth.uid) return<Redirect to='/signin' />
+
     return (
       <div className="container">
       <form className="white" id="submit-case-id">
