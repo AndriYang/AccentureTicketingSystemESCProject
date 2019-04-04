@@ -29,15 +29,15 @@ export class AdminSignIn extends Component {
         <form onSubmit={this.handleSubmit} className="white" id="adminLoginForm">
           <h5 className="grey-text text-darken-3">Sign in</h5>
           <div className="input-field">
-            <label htmlFor="email">someone@accenture.com</label>
-            <input type="email" id="email" onChange={this.handleChange}/>
+            <label htmlFor="email" id="emaillable">someone@accenture.com</label>
+            <input type="email" name= "email" id="email" onChange={this.handleChange}/>
           </div>
           <div className="input-field">
             <label htmlFor="password">Password</label>
             <input type="password" id="password" onChange={this.handleChange}/>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Login</button>
+            <button className="btn pink lighten-1 z-depth-0" id="button">Login</button>
             <div className="red-text center">
               { authError ? <p> {authError} </p> : null }
             </div>

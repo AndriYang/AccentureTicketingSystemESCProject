@@ -7,7 +7,10 @@ import {CometChat} from '@cometchat-pro/chat';
 import config from '../../config/real-time-chat-config';
 import 'react-chat-widget/lib/styles.css';
 import Drawer from 'react-drag-drawer'
-
+import {storage,database,auth} from '../../config/firebaseConfig'
+import { firestoreConnect } from 'react-redux-firebase'
+import FileUploader from "react-firebase-file-uploader";
+import firebase from "firebase";
 
 const agentUID = config.agentUID;
 const CUSTOMER_MESSAGE_LISTENER_KEY = "client-listener";
@@ -30,6 +33,8 @@ class guesscustomerquery extends Component {
     title: '',
     content: '',
     email:'',
+    image: '',
+    imageURL: '',
     caseId:0,
     toggle:false,
     solveStatus:'',
@@ -241,11 +246,30 @@ handleSubmitCaseID= (e) => {
   var caseId1 = this.state.caseId;
   this.props.history.push(`/customerdashboard`,{caseId:caseId1})
 }
+
 componentWillUnmount() {
   CometChat.removeMessageListener(CUSTOMER_MESSAGE_LISTENER_KEY);
   CometChat.logout();
   dropMessages();
 }
+
+handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
+  handleProgress = progress => this.setState({ progress });
+  handleUploadError = error => {
+    this.setState({ isUploading: false });
+    console.error(error);
+  };
+  handleUploadSuccess = filename => {
+    this.setState({ image: filename, progress: 100, isUploading: false });
+    firebase
+      .storage()
+      .ref("feedback")
+      .child(filename)
+      .getDownloadURL()
+      .then(url => this.setState({ imageURL: url }));
+
+  };
+
   render() {
     //if (!auth.uid) return<Redirect to='/signin' />
 
@@ -256,7 +280,7 @@ componentWillUnmount() {
         <label htmlFor="intpuCaseId">Already have a case ID?</label>
         <input type="text" id="input-case-id" onChange={this.handleChangeCaseID}/>
       </div>
-      <button id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Submit</button>
+      <button className="btn purple darken-3 text-white" id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Submit</button>
       </form>
       <Drawer
         open={this.state.toggle}
@@ -264,6 +288,7 @@ componentWillUnmount() {
       >
         <div>Your case ID is {this.state.caseId}. Please save it for future reference!</div>
       </Drawer>
+      <div class="divider"></div>
         <div >
                 <form onSubmit={this.handleSubmit} className="white" id="createForm">
                   <h5 className="grey-text text-darken-3">Contact Us</h5>
@@ -275,18 +300,22 @@ componentWillUnmount() {
                       <label htmlFor="authorLastName">Last Name</label>
                       <input type="text" id="authorLastName" onChange={this.handleChange}/>
                     </div>
-                    <div className="input-field">
-                      <label htmlFor="email">Email</label>
-                      <input type="text" id="email" onChange={this.handleChange}/>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" class="validate" onChange={this.handleChange}/>
+                        <span class="helper-text" data-error="wrong" data-success="right"></span>
+                      </div>
                     </div>
-                  <div class ="col s3">
-                      <label id= "category">Category:</label>
-                      <select class="browser-default" id= "sel" onChange={this.handleChange}>
-                        <option value="sel">Please Select One</option>
-                        <option value="finance">Finance</option>
-                        <option value="it">IT</option>
-                        <option value="general">General</option>
-                      </select>
+                  <div>
+                    <label id= "category">Category:</label>
+                    <select class="browser-default" id= "sel" onChange={this.handleChange}>
+                      <option value="sel">Please Select One</option>
+                      <option value="finance">Finance</option>
+                      <option value="it">IT</option>
+                      <option value="general">General</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
                   <div className="input-field">
                     <label htmlFor="title">Title</label>
@@ -296,8 +325,26 @@ componentWillUnmount() {
                     <label htmlFor="content">Ticket Content</label>
                     <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
                   </div>
+                  {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
+                  <label className="btn purple darken-3 text-white">
+                    <i class="material-icons">add_a_photo</i>
+                    Upload Image
+                    <FileUploader
+                      hidden
+                      accept="image/*"
+                      randomizeFilename
+                      storageRef={firebase.storage().ref('feedback')}
+                      onUploadStart={this.handleUploadStart}
+                      onUploadError={this.handleUploadError}
+                      onUploadSuccess={this.handleUploadSuccess}
+                      onProgress={this.handleProgress}
+                    />
+                  </label>
+                <div class="responsive-img offset-s6 " >
+                  {this.state.imageURL && <img class="responsive-img" src={this.state.imageURL} />}
+                </div>
                   <div className="input-field">
-                    <button className="btn pink lighten-1 z-depth-0">Create</button>
+                    <button className="btn purple darken-3 text-white">Create</button>
                   </div>
                 </form>
                 <div>
@@ -318,7 +365,12 @@ componentWillUnmount() {
   }
 }
 
+const mapStateToProps =(state) => {
+  return {
+    auth: state.firebase.auth,
 
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -326,4 +378,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(guesscustomerquery);
+export default connect(mapStateToProps, mapDispatchToProps)(guesscustomerquery);

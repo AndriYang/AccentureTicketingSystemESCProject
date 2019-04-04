@@ -13,10 +13,31 @@ const express = require('express'); //needed to launch server
 const cors = require('cors'); //needed to disable sendgrid security
 const app = express(); //alias from the express function
 const axios = require('axios');
+const twilio = require('twilio');
+
 app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it Sendgrid will not send!
+
+//twilio sms
+const accountID= '_ACCOUNT_ID';
+const authToken = '_AUTH_TOKEN';
+const client = new twilio(accountID, authToken);
+
+app.get('/send-text', (req, res) => {
+  //get text
+  const { recipient, textmessage } = req.query;
+
+  //send textmessage
+  client.messages.create({
+    body: textmessage,
+    to: "+65" + recipient,
+    //from: "__NO__FROM__TWILIO"
+    from: "+12672140818"
+  }).then((message) => console.log(message.body));
+})
+
 // Welcome page of the express server:
 app.get('/', (req, res) => {
-    res.send("Welcome to the Sendgrid Emailing Server");
+    res.send("Welcome to Emailing Server");
 });
 
 //for sending email
@@ -46,8 +67,8 @@ app.get('/express_backend', (req,res) => {
 });
 
 
-const appID = '1424e7726e315b';
-const apiKey = '8bc644764d77f50ef8661660302e0fd6623f4fb4';
+const appID = '_APP_ID';
+const apiKey = '_API_KEY';
 const agentUID = 'Agent';
 
 const url = 'https://api.cometchat.com/v1';

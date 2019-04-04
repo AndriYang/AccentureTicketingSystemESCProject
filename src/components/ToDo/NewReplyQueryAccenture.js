@@ -11,6 +11,10 @@ class NewReplyQuery extends Component {
       sender: '',
       subject: '',
       text: ''
+    },
+    text: {
+      recipient: '',
+      textmessage: ''
     }
   }
 
@@ -33,6 +37,13 @@ class NewReplyQuery extends Component {
 
   }
 
+  sendText = _ => {
+  console.log(this.state);
+  const { text } = this.state;
+  fetch(`http://127.0.0.1:4000/send-text?recipient=${text.recipient}&textmessage=${text.textmessage}`)
+  .catch(err => console.error(err))
+  }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id] : e.target.value
@@ -48,7 +59,7 @@ class NewReplyQuery extends Component {
 
 
   render() {
-    const { email } = this.state;
+    const { email, text } = this.state;
     const { reply } = this.props;
     return (
       <div className="container1">
@@ -70,12 +81,19 @@ class NewReplyQuery extends Component {
               <input value={email.subject}
                 onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
               <div  />
+              <label> Your Phone Number </label>
+                <br/>
+                <input value = {text.recipient}
+                  onChange={e => this.setState({ text: {...text, recipient: e.target.value}})} />
               <label> Message </label>
               <br />
-              <textarea rows={3} value={email.text}
-                onChange={e => this.setState({ email: { ...email, text: e.target.value } })} />
-              <div  />
+                <textarea rows={3} value={email.text, text.textmessage}
+                  onChange={e => this.setState({
+                    email: { ...email, text: e.target.value },
+                    text: {...text, textmessage: e.target.value} })} />
+                <div  />
               <button onClick={this.sendEmail}> Send Email </button>
+              <button onClick={this.sendText}> Send SMS </button>
               </form>
             </div>
       </div>

@@ -5,11 +5,11 @@ import Dashboard from './components/dashboard/Dashboard'
 import AdminSignIn from './components/auth/AdminSignIn'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
+import ChangePassword from './components/auth/ChangePassword'
 import customerquery from './components/customerquery/customerquery'
 import guesscustomerquery from './components/customerquery/guesscustomerquery'
 import Frontpage from './components/frontpage/Frontpage'
 import About from './components/frontpage/About'
-// import NewReplyQuery from './components/ToDo/NewReplyQuery'
 import NewReplyQuery from './components/ToDo/NewReplyQueryAccenture'
 import Agent from './components/real-time-chat/Agent'
 import CustomerDashboard from './components/customerquery/customerDashboard'
@@ -27,6 +27,7 @@ class App extends Component {
             <Route exact path='/dashboard' component={Dashboard} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/changepassword' component={ChangePassword} />
             <Route path='/customerquery' component={customerquery} />
             <Route path='/guesscustomerquery' component={guesscustomerquery} />
             <Route path='/aboutus' component={About} />
