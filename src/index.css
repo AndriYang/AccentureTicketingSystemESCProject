@@ -10,7 +10,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(/img/supermario.png) no-repeat;
   background-size: 100%;
   background-position: bottom;
   background-color: #95e8f3;
@@ -37,4 +36,20 @@ textarea.materialize-textarea:focus:not([readonly]) {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.message {
+  overflow: hidden;
+}
+
+.balon1 {
+  float: right;
+  background: #35cce6;
+  border-radius: 10px;
+}
+
+.balon2 {
+  float: left;
+  background: #f4f7f9;
+  border-radius: 10px;
 }

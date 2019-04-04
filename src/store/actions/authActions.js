@@ -38,6 +38,27 @@ export const signOut = () => {
   }
 }
 
+export const changePassword = (credentials) => {
+  return (dispatch, getState, {getFirebase}) => {
+    const firebase = getFirebase();
+
+    const user = firebase.auth().currentUser;
+
+    const cred = firebase.auth.EmailAuthProvider.credential(user.email, credentials.password);
+
+    user.reauthenticateAndRetrieveDataWithCredential(cred).then(() => {
+      user.updatePassword(credentials.newPassword).then(() => {
+        dispatch({ type: 'CHANGEPASSWORD_SUCCESS'});
+      }).catch((error) => {
+        dispatch({ type: 'CHANGEPASSWORD_ERROR'});
+      });
+    }).catch((error) => {
+      dispatch({ type: 'CHANGEPASSWORD_ERROR'});
+    });
+
+  }
+}
+
 export const signUp = (newUser) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const firebase = getFirebase();

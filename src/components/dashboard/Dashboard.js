@@ -12,7 +12,8 @@ class Dashboard extends Component {
     addFormValue: "",
     checkedPassword: true,
     checkedRecruit: true,
-    checkedTech: true
+    checkedTech: true,
+    checkedOther: true,
   };
 
   handleCheckTech = event =>{
@@ -77,6 +78,26 @@ class Dashboard extends Component {
   );
   }
 
+  handleCheckOther = event =>{
+    this.setState({checkedOther: !this.state.checkedOther});
+  }
+  renderCheckboxOther = () =>{
+    return (<div>
+      <form action="#">
+      <label>
+        <input
+          name="isGoing"
+          type="checkbox"
+          checked={this.state.checkedOther}
+          onChange={this.handleCheckOther} />
+        <span>Other</span>
+      </label>
+      <br />
+    </form>
+    </div>
+  );
+  }
+
   renderToDos() {
     const { projects } = this.props;
     const toDos = _.map(projects, (value, key) => {
@@ -85,7 +106,8 @@ class Dashboard extends Component {
         <NewToDoListItem key={key} todoId={key} todo={value}
           checkedTech={this.state.checkedTech}
           checkedRecruit={this.state.checkedRecruit}
-          checkedPassword={this.state.checkedPassword}/>
+          checkedPassword={this.state.checkedPassword}
+          checkedOther={this.state.checkedOther}/>
       </div>
     );});
 
@@ -117,20 +139,22 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard container">
-        <div className="column">
+        <div class="row">
+            <div className="col s8 m2">
+              <div className="text-deep-purple lighten-2"><span class="flow-text">Showing categories:</span></div>
+              <div class="divider"></div>
+            <div class="col s2">{this.renderCheckboxTech()}</div>
+            <div class="col s2">{this.renderCheckboxPassword()}</div>
+            <div class="col s2">{this.renderCheckboxRecruit()}</div>
+            <div class="col s2">{this.renderCheckboxOther()}</div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div><span class="flow-text">Tickets:</span></div>
+          <div class="divider"></div>
           <div className="col s12 m6">
-            <p>Showing categories:</p>
-            {this.renderCheckboxTech()}
-            {this.renderCheckboxPassword()}
-            {this.renderCheckboxRecruit()}
             {this.renderToDos()}
           </div>
-        </div>
-
-
-
-
-
       </div>
     )
   }

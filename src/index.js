@@ -11,7 +11,11 @@ import reduxThunk from "redux-thunk";
 import { reduxFirestore, getFirestore } from 'redux-firestore'
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
 import firebaseConfig from './config/firebaseConfig'
+import 'bootstrap/dist/css/bootstrap.css';
+import { CometChat } from '@cometchat-pro/chat';
+import config from './config/real-time-chat-config';
 
+CometChat.init(config.appID)
 // import 'milligram';
 
 const store = createStore(rootReducer,
