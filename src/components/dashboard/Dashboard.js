@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Notifcations from './Notifications'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
@@ -134,7 +135,7 @@ class Dashboard extends Component {
 
   render() {
     //console.log(this.props);
-    const { projects, auth } = this.props;
+    const { projects, auth, notifications } = this.props;
     if (!auth.uid) return<Redirect to='/' />
 
     return (
@@ -143,18 +144,23 @@ class Dashboard extends Component {
             <div className="col s8 m2">
               <div className="text-deep-purple lighten-2"><span class="flow-text">Showing categories:</span></div>
               <div class="divider"></div>
-            <div class="col s2">{this.renderCheckboxTech()}</div>
-            <div class="col s2">{this.renderCheckboxPassword()}</div>
-            <div class="col s2">{this.renderCheckboxRecruit()}</div>
-            <div class="col s2">{this.renderCheckboxOther()}</div>
+            <div class="col s3">{this.renderCheckboxTech()}</div>
+            <div class="col s3">{this.renderCheckboxPassword()}</div>
+            <div class="col s3">{this.renderCheckboxRecruit()}</div>
+            <div class="col s3">{this.renderCheckboxOther()}</div>
+            </div>
+            <div className="col s12 m5 offset-m1">
+              <Notifcations notifications={notifications}/>
             </div>
           </div>
+
           <div class="divider"></div>
           <div><span class="flow-text">Tickets:</span></div>
           <div class="divider"></div>
           <div className="col s12 m6">
             {this.renderToDos()}
           </div>
+
       </div>
     )
   }
@@ -164,13 +170,15 @@ const mapStateToProps = (state) => {
   //console.log(state);
   return {
     projects: state.firestore.ordered.projects,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    notifications: state.firestore.ordered.notifications
   }
 }
 
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([
-    { collection: 'projects' }
+    { collection: 'projects' },
+    {collection: 'notifications', limit:5, orderBy:['time', 'desc']}
   ])
 )(Dashboard)
