@@ -18,8 +18,8 @@ const twilio = require('twilio');
 app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it Sendgrid will not send!
 
 //twilio sms
-const accountID= 'AC36ea56c656c40ea6543efb53f442b04f';
-const authToken = 'dd41ba3459522ca0638f57a422df44d4';
+const accountID= '_ACCOUNT_ID';
+const authToken = '_AUTH_TOKEN';
 const client = new twilio(accountID, authToken);
 
 app.get('/send-text', (req, res) => {
@@ -67,8 +67,8 @@ app.get('/express_backend', (req,res) => {
 });
 
 
-const appID = '1424e7726e315b';
-const apiKey = '8bc644764d77f50ef8661660302e0fd6623f4fb4';
+const appID = '_APP_ID';
+const apiKey = '_API_KEY';
 const agentUID = 'Agent';
 
 const url = 'https://api.cometchat.com/v1';

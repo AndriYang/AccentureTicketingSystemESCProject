@@ -67,7 +67,7 @@ class guesscustomerquery extends Component {
     e.preventDefault();
     //console.log(this.state)
     var uid1 = localStorage.getItem("cc-uid");
-    console.log("uid in handlesubmit is ",uid1);
+    console.log("uid in handleNewUserMessage is ",uid1);
 
     if (uid1 === null) {
       console.log("creating a new user.");
@@ -75,25 +75,21 @@ class guesscustomerquery extends Component {
         result => {
           console.log('auth token fetched', result);
           localStorage.setItem("cc-uid",result.uid);
-          var uid2 = localStorage.getItem("cc-uid");
-          console.log("uid2 is ",uid2);
-          this.setState({caseId: uid2, solveStatus: "processing"}, function () {
-          console.log(this.state.caseId);
-          this.props.createTicket(this.state);
-          this.toggle();
       },
       error => {
         console.log('Creating user failed with error:', error);
       })
+    }
+
+    var uid2 = localStorage.getItem("cc-uid");
+    console.log("uid2 is ",uid2);
+    this.setState({caseId: uid2, solveStatus: "processing"}, function () {
+    console.log(this.state.caseId);
+    this.props.createTicket(this.state);
+    this.toggle();
+
 });
-}else{
-  this.setState({caseId: uid1, solveStatus: "processing"}, function () {
-  console.log(this.state.caseId);
-  this.props.createTicket(this.state);
-  this.toggle();
-});
-}
-}
+  }
 
   renderChatBot = () => {
   const { addFormVisible } = this.state;
@@ -114,7 +110,7 @@ class guesscustomerquery extends Component {
 componentDidMount() {
   addResponseMessage('Welcome to our store!');
   addResponseMessage('Are you looking for anything in particular?');
-  localStorage.clear();
+  // localStorage.clear();
 
   let uid = localStorage.getItem("cc-uid");
   console.log("Component did mount.");
@@ -280,26 +276,20 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 
     return (
       <div className="container">
-
       <form className="white" id="submit-case-id">
       <div className="input-field">
         <label htmlFor="intpuCaseId">Already have a case ID?</label>
         <input type="text" id="input-case-id" onChange={this.handleChangeCaseID}/>
       </div>
-      <button className="btn purple darken-3 text-white" id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Check Progress</button>
+      <button className="btn purple darken-3 text-white" id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Submit</button>
       </form>
       <Drawer
         open={this.state.toggle}
         onRequestClose={this.toggle}
       >
-        <h2 className="white-text">Your case ID is {this.state.caseId}. Please save it for future reference!</h2>
+        <div>Your case ID is {this.state.caseId}. Please save it for future reference!</div>
       </Drawer>
-
       <div class="divider"></div>
-      <div className="">
-        <button className="btn purple darken-3 text-white" id="open-chat-bot" onClick={this.handleClick}>Chat with AccenBot</button>
-        {this.renderChatBot()}
-      </div>
         <div >
                 <form onSubmit={this.handleSubmit} className="white" id="createForm">
                   <h5 className="grey-text text-darken-3">Contact Us</h5>
@@ -358,7 +348,10 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                     <button className="btn purple darken-3 text-white">Create</button>
                   </div>
                 </form>
-
+                <div>
+                  <button id="open-chat-bot" onClick={this.handleClick}>Chat with AccenBot</button>
+                  {this.renderChatBot()}
+                </div>
                 <div>
                 <Widget
                   handleNewUserMessage={this.handleNewUserMessage}
