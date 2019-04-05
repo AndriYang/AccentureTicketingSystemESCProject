@@ -36,6 +36,7 @@ class guesscustomerquery extends Component {
     email:'',
     image: '',
     imageURL: '',
+    phone: '',
     caseId:0,
     toggle:false,
     solveStatus:'',
@@ -317,6 +318,10 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                         <input type="email" id="email" class="validate" onChange={this.handleChange}/>
                         <span class="helper-text" data-error="wrong" data-success="right"></span>
                       </div>
+                    </div>
+                    <div className="input-field">
+                      <label htmlFor="phone">Phone Number</label>
+                      <input type="text" id="phone" onChange={this.handleChange}/>
                     </div>
                   <div>
                     <label id= "category">Category:</label>

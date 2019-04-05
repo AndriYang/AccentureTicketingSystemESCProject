@@ -7,13 +7,13 @@ class NewReplyQuery extends Component {
   state = {
     txt: '',
     email: {
-      recipient: '',
-      sender: '',
-      subject: '',
+      recipient: this.props.location.state.email,
+      sender: this.props.location.state.authEmail,
+      subject: 'RE: ' + this.props.location.state.title,
       text: ''
     },
     text: {
-      recipient: '',
+      recipient: this.props.location.state.phone,
       textmessage: ''
     }
   }
@@ -59,23 +59,26 @@ class NewReplyQuery extends Component {
 
 
   render() {
+    console.log(this.props.location.state.email);
+    console.log(this.props.location.state.authEmail);
     const { email, text } = this.state;
     const { reply } = this.props;
     return (
       <div className="container1">
             <div>
               <form onSubmit={this.handleSubmit} className="white">
+              <label>Title</label>
+              <h6>{this.props.location.state.title}</h6>
+              <label>Description</label>
+              <h6>{this.props.location.state.content}</h6>
+              <div class="divider"></div>
               <h2> Send Email </h2>
               <label> Recipient </label>
+              <h6>{this.props.location.state.email}</h6>
               <br />
-              <input value={email.recipient}
-                onChange={e => this.setState({ email: { ...email, recipient: e.target.value } })} />
-              <div  />
               <label> Sender </label>
+              <h6>{this.props.location.state.authEmail}</h6>
               <br />
-              <input value={email.sender}
-                onChange={e => this.setState({ email: { ...email, sender: e.target.value } })} />
-              <div  />
               <label> Subject </label>
               <br />
               <input value={email.subject}
@@ -83,6 +86,7 @@ class NewReplyQuery extends Component {
               <div  />
               <label> Your Phone Number </label>
                 <br/>
+                <h6>{this.props.location.state.phone}</h6>
                 <input value = {text.recipient}
                   onChange={e => this.setState({ text: {...text, recipient: e.target.value}})} />
               <label> Message </label>

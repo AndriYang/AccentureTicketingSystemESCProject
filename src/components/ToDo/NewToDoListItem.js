@@ -10,7 +10,8 @@ import PreviewPicture from "./PreviewPicture"
 
 class NewToDoListItem extends Component {
   state ={
-    addFormVisible : false
+    addFormVisible : false,
+    redirect: false
   }
 
   handleClick = (e) =>{
@@ -41,7 +42,31 @@ class NewToDoListItem extends Component {
   }
 };
 
+handleReply=()=>{
+  console.log("in handleReply")
+  this.setState({redirect:true})
+}
+
   render() {
+    if(this.state.redirect){
+      const { todo, auth } = this.props;
+      return(
+        <Redirect to={{
+    pathname: '/reply',
+    state: { email: todo.email,
+    authorFirstName: todo.authorFirstName,
+    authorLastName: todo.authorLastName,
+    content: todo.content,
+    title: todo.title,
+    image: todo.imageURL,
+    phone: todo.phone,
+    authEmail: auth.email
+    }
+    }}
+    />
+      )
+    }
+
     const { projects, auth } = this.props;
     if (!auth.uid) return<Redirect to='/' />
     const { todoId, todo, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
@@ -61,7 +86,7 @@ class NewToDoListItem extends Component {
                 <div>{moment(todo.createdAt.toDate()).calendar()}</div>
               </div>
               <div class="offset-s6 left-align z-depth-0">
-                <Link to='/reply' class="btn-small  purple darken-3"> Reply </Link>
+                <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
               </div>
             </div>
           </div>
@@ -83,7 +108,7 @@ class NewToDoListItem extends Component {
                   <div>{moment(todo.createdAt.toDate()).calendar()}</div>
                 </div>
                 <div class="offset-s6 left-align z-depth-0">
-                  <Link to='/reply' class="btn-small  purple darken-3"> Reply </Link>
+                  <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
                 </div>
               </div>
             </div>
@@ -105,7 +130,7 @@ class NewToDoListItem extends Component {
                   <div>{moment(todo.createdAt.toDate()).calendar()}</div>
                 </div>
                 <div class="offset-s6 left-align z-depth-0">
-                  <Link to='/reply' class="btn-small  purple darken-3"> Reply </Link>
+                  <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
                 </div>
               </div>
             </div>
@@ -127,7 +152,7 @@ class NewToDoListItem extends Component {
                   <div>{moment(todo.createdAt.toDate()).calendar()}</div>
                 </div>
                 <div class="offset-s6 left-align z-depth-0">
-                  <Link to='/reply' class="btn-small  purple darken-3"> Reply </Link>
+                  <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
                 </div>
               </div>
             </div>
