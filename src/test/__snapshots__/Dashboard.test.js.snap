@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`print the initial state 1`] = `
+Dashboard {
+  "context": undefined,
+  "handleCheckOther": [Function],
+  "handleCheckPassword": [Function],
+  "handleCheckRecruit": [Function],
+  "handleCheckTech": [Function],
+  "props": undefined,
+  "refs": Object {},
+  "renderCheckboxOther": [Function],
+  "renderCheckboxPassword": [Function],
+  "renderCheckboxRecruit": [Function],
+  "renderCheckboxTech": [Function],
+  "state": Object {
+    "addFormValue": "",
+    "addFormVisible": false,
+    "checkedOther": true,
+    "checkedPassword": true,
+    "checkedRecruit": true,
+    "checkedTech": true,
+  },
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;

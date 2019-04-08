@@ -18,6 +18,8 @@ const twilio = require('twilio');
 app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it Sendgrid will not send!
 
 //twilio sms
+// const accountID= '_ACCOUNT_ID';
+// const authToken = '_AUTH_TOKEN';
 const accountID= '_ACCOUNT_ID';
 const authToken = '_AUTH_TOKEN';
 const client = new twilio(accountID, authToken);
@@ -67,6 +69,8 @@ app.get('/express_backend', (req,res) => {
 });
 
 
+// const appID = '_APP_ID';
+// const apiKey = '_API_KEY';
 const appID = '_APP_ID';
 const apiKey = '_API_KEY';
 const agentUID = 'Agent';

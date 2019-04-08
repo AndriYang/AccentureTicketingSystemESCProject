@@ -13,11 +13,11 @@ const Frontpage = () => {
       <div className="card-content">
         <div className="row ">
           <div class="col s12 m12 l12 offset-s6 center-align ">
-            <Link to='/admin' class="btn-large  purple darken-3"> Admin </Link>
+            <Link to='/admin' id="admin" class="btn-large  purple darken-3"> Admin </Link>
           </div>
         </div>
           <div class="offset-s6 center-align z-depth-0">
-            <Link to='/guesscustomerquery' class="btn-large  purple darken-3"> Customer </Link>
+            <Link to='/guesscustomerquery' id="customer" class="btn-large  purple darken-3"> Customer </Link>
           </div>
 
       </div>

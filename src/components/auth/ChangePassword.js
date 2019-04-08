@@ -26,14 +26,14 @@ export class ChangePassword extends Component {
   render() {
 
     const { authError, auth } = this.props;
-    if (!auth.uid) return<Redirect to='/' />
+    // if (!auth.uid) return<Redirect to='/' />
 
     return(
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white" id='loginForm'>
+        <form onSubmit={this.handleSubmit} className="white" id='loginFormChange'>
         <div className="input-field">
           <label htmlFor="password"> Current Password</label>
-          <input type="password" id="password" onChange={this.handleChange}/>
+          <input type="password" id="password" name="oldPassword" onChange={this.handleChange}/>
         </div>
         <div className="input-field">
           <label htmlFor="password"> New Password</label>
@@ -41,7 +41,7 @@ export class ChangePassword extends Component {
         </div>
 
         <div className="input-field">
-          <button className="btn purple darken-3 text-white">Confirm</button>
+          <button className="btn purple darken-3 text-white" id="confirm">Confirm</button>
         </div>
         </form>
       </div>

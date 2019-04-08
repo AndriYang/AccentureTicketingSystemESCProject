@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`print the initial state 1`] = `
+NewToDoListItem {
+  "context": undefined,
+  "props": undefined,
+  "refs": Object {},
+  "renderContent": [Function],
+  "state": Object {
+    "caseId": 0,
+  },
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;

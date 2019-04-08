@@ -25,7 +25,7 @@ const divStyle = {
 };
 
 
-class guesscustomerquery extends Component {
+export class guesscustomerquery extends Component {
   state = {
     authorFirstName: '',
     authorLastName: '',
@@ -342,7 +342,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                     <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
                   </div>
                   {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
-                  <label className="btn purple darken-3 text-white">
+                  <label id="imageUpload" className="btn purple darken-3 text-white">
                     <i class="material-icons">add_a_photo</i>
                     Upload Image
                     <FileUploader
@@ -360,7 +360,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                   {this.state.imageURL && <img class="responsive-img" src={this.state.imageURL} />}
                 </div>
                   <div className="input-field">
-                    <button className="btn purple darken-3 text-white">Create</button>
+                    <button id="create" className="btn purple darken-3 text-white">Create</button>
                   </div>
                 </form>
 

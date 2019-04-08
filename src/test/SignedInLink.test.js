@@ -15,9 +15,9 @@ configure({ adapter: new Adapter() });
         <SignedInLink />
       );
       const wrapper = shallow(comp);
-      expect(wrapper.find(NavLink).first().props().to).to.equal('/create');
+      expect(wrapper.find(NavLink).first().props().to).to.equal('/changepassword');
       expect(wrapper.find(NavLink).at(1).props().to).to.equal('/');
-      expect(wrapper.find(NavLink).at(2).props().to).to.equal('/todo');
+      expect(wrapper.find(NavLink).at(2).props().to).to.equal('/newtodo');
     })
 
 

@@ -77,7 +77,7 @@ handleReply=()=>{
           <div className="container section project-details">
             <div className="card z-depth-0">
               <div>
-                <button className="card-title  btn-flat" onClick={this.handleClick}>{ todo.title }</button>
+                <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
                 {this.renderContent()}
               </div>
               <div className="card-action gret lighten-4 grey-text">
@@ -86,7 +86,7 @@ handleReply=()=>{
                 <div>{moment(todo.createdAt.toDate()).calendar()}</div>
               </div>
               <div class="offset-s6 left-align z-depth-0">
-                <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
+                <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ handleReply=()=>{
             <div className="container section project-details">
               <div className="card z-depth-0">
                 <div>
-                  <button className="card-title  btn-flat" onClick={this.handleClick}>{ todo.title }</button>
+                  <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
                   {this.renderContent()}
                 </div>
                 <div className="card-action gret lighten-4 grey-text">
@@ -108,7 +108,7 @@ handleReply=()=>{
                   <div>{moment(todo.createdAt.toDate()).calendar()}</div>
                 </div>
                 <div class="offset-s6 left-align z-depth-0">
-                  <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
+                  <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@ handleReply=()=>{
             <div className="container section project-details">
               <div className="card z-depth-0">
                 <div>
-                  <button className="card-title  btn-flat" onClick={this.handleClick}>{ todo.title }</button>
+                  <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
                   {this.renderContent()}
                 </div>
                 <div className="card-action gret lighten-4 grey-text">
@@ -130,7 +130,7 @@ handleReply=()=>{
                   <div>{moment(todo.createdAt.toDate()).calendar()}</div>
                 </div>
                 <div class="offset-s6 left-align z-depth-0">
-                  <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
+                  <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ handleReply=()=>{
             <div className="container section project-details">
               <div className="card z-depth-0">
                 <div>
-                  <button className="card-title  btn-flat" onClick={this.handleClick}>{ todo.title }</button>
+                  <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
                   {this.renderContent()}
                 </div>
                 <div className="card-action gret lighten-4 grey-text">
@@ -152,7 +152,7 @@ handleReply=()=>{
                   <div>{moment(todo.createdAt.toDate()).calendar()}</div>
                 </div>
                 <div class="offset-s6 left-align z-depth-0">
-                  <button class="btn-small  purple darken-3" onClick={this.handleReply}>Reply</button>
+                  <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
                 </div>
               </div>
             </div>

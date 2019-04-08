@@ -23,7 +23,7 @@ export class SignIn extends Component {
 
   render() {
     const { authError, auth } = this.props;
-    if (auth.uid) return<Redirect to='/create' />
+    // if (auth.uid) return<Redirect to='/create' />
 
     return (
       <div className="container">

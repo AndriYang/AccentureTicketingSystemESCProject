@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When the form is submitted print the initial state 1`] = `
+SignIn {
+  "context": undefined,
+  "handleChange": [Function],
+  "handleSubmit": [Function],
+  "props": undefined,
+  "refs": Object {},
+  "state": Object {
+    "email": "",
+    "password": "",
+  },
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;
+
+exports[`When the form is submitted print the state 1`] = `
+SignIn {
+  "context": undefined,
+  "handleChange": [Function],
+  "handleSubmit": [Function],
+  "props": Object {
+    "email": "mario@net.com",
+    "password": "test1234",
+  },
+  "refs": Object {},
+  "state": Object {
+    "email": "",
+    "password": "",
+  },
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;

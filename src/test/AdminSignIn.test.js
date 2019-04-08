@@ -45,4 +45,28 @@ configure({ adapter: new Adapter() });
         {email: '100@accenture.com', password: 'test1234'}
       )
     })
+
+    it('check email setState', () => {
+      //fill in email field with mario@net.com
+      wrapper = shallow(<AdminSignIn adminsignIn={mockLoginfn}  />);
+      wrapper.find('#email').simulate(
+        'change',
+        {target:
+          {id: 'email', value: '100@accenture.com'}
+        }
+      )
+      expect(wrapper.state('email')).toEqual('100@accenture.com');
   })
+
+  it('check password setState', () => {
+
+    wrapper = shallow(<AdminSignIn adminsignIn={mockLoginfn}  />);
+    wrapper.find('#password').simulate(
+      'change',
+      {target:
+        {id: 'password', value: 'test1234'}
+      }
+    )
+    expect(wrapper.state('password')).toEqual('test1234');
+  })
+})

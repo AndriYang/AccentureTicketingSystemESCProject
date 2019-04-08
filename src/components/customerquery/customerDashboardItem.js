@@ -22,7 +22,7 @@ const limit = 30;
 var appID = "1424e7726e315b";
 var apiKey = "8bc644764d77f50ef8661660302e0fd6623f4fb4";
 
-class NewToDoListItem extends Component {
+export class NewToDoListItem extends Component {
 
   state = {
     caseId:0

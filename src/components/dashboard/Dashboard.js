@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom'
 import _ from "lodash";
 import NewToDoListItem from "../ToDo/NewToDoListItem";
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
   state = {
     addFormVisible: false,
     addFormValue: "",
@@ -140,14 +140,14 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard container">
-        <div class="row">
+        <div class="row" >
             <div className="col s8 m2">
               <div className="text-deep-purple lighten-2"><span class="flow-text">Showing categories:</span></div>
               <div class="divider"></div>
-            <div class="col s3">{this.renderCheckboxTech()}</div>
-            <div class="col s3">{this.renderCheckboxPassword()}</div>
-            <div class="col s3">{this.renderCheckboxRecruit()}</div>
-            <div class="col s3">{this.renderCheckboxOther()}</div>
+            <div id="box1" class="col s3" onClick={this.handleCheckTech}>{this.renderCheckboxTech()}</div>
+            <div id="box1" class="col s3" onClick={this.handleCheckPassword}>{this.renderCheckboxPassword()}</div>
+            <div id="box1" class="col s3" onClick={this.handleCheckRecruit}>{this.renderCheckboxRecruit()}</div>
+            <div id="box1" class="col s3" onClick={this.handleCheckOther}>{this.renderCheckboxOther()}</div>
             </div>
             <div className="col s12 m5 offset-m1">
               <Notifcations notifications={notifications}/>

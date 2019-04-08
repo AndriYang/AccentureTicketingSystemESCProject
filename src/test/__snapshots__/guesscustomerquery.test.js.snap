@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`print the initial state 1`] = `
+guesscustomerquery {
+  "context": undefined,
+  "createMessageListener": [Function],
+  "createUser": [Function],
+  "fetchAuthToken": [Function],
+  "fetchPreviousMessages": [Function],
+  "handleChange": [Function],
+  "handleChangeCaseID": [Function],
+  "handleClick": [Function],
+  "handleNewUserMessage": [Function],
+  "handleProgress": [Function],
+  "handleSubmit": [Function],
+  "handleSubmitCaseID": [Function],
+  "handleUploadError": [Function],
+  "handleUploadStart": [Function],
+  "handleUploadSuccess": [Function],
+  "props": undefined,
+  "refs": Object {},
+  "renderChatBot": [Function],
+  "state": Object {
+    "addFormVisible": false,
+    "authorFirstName": "",
+    "authorId": "",
+    "authorLastName": "",
+    "caseId": 0,
+    "content": "",
+    "email": "",
+    "image": "",
+    "imageURL": "",
+    "phone": "",
+    "sel": "",
+    "solveStatus": "",
+    "title": "",
+    "toggle": false,
+  },
+  "toggle": [Function],
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;

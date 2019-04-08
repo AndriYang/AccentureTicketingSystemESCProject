@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { createReply } from '../../store/actions/replyActions'
 
 
-class NewReplyQuery extends Component {
+export class NewReplyQuery extends Component {
   state = {
     txt: '',
     email: {
@@ -91,13 +91,13 @@ class NewReplyQuery extends Component {
                   onChange={e => this.setState({ text: {...text, recipient: e.target.value}})} />
               <label> Message </label>
               <br />
-                <textarea rows={3} value={email.text, text.textmessage}
+                <textarea id="textarea" rows={3} value={email.text, text.textmessage}
                   onChange={e => this.setState({
                     email: { ...email, text: e.target.value },
                     text: {...text, textmessage: e.target.value} })} />
                 <div  />
-              <button onClick={this.sendEmail}> Send Email </button>
-              <button onClick={this.sendText}> Send SMS </button>
+              <button id="emailBtn" onClick={this.sendEmail}> Send Email </button>
+              <button id="smsBtn" onClick={this.sendText}> Send SMS </button>
               </form>
             </div>
       </div>

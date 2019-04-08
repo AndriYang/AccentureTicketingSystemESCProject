@@ -16,6 +16,6 @@ configure({ adapter: new Adapter() });
       );
       const wrapper = shallow(comp);
       expect(wrapper.find(NavLink).first().props().to).to.equal('/aboutus');
-      expect(wrapper.find(NavLink).last().props().to).to.equal('/signin');
+
     })
   })

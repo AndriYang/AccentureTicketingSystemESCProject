@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With snapshots should handle CREATE_PROJECT 1`] = `
+Object {
+  "projects": Array [
+    Object {
+      "content": "blah blah blah",
+      "id": "1",
+      "title": "help me find peach",
+    },
+    Object {
+      "content": "blah blah blah",
+      "id": "2",
+      "title": "collect all the start",
+    },
+    Object {
+      "content": "blah blah blah",
+      "id": "3",
+      "title": "egg hunt with me",
+    },
+  ],
+}
+`;
+
+exports[`With snapshots should handle CREATE_PROJECT_ERROR 1`] = `
+Object {
+  "projects": Array [
+    Object {
+      "content": "blah blah blah",
+      "id": "1",
+      "title": "help me find peach",
+    },
+    Object {
+      "content": "blah blah blah",
+      "id": "2",
+      "title": "collect all the start",
+    },
+    Object {
+      "content": "blah blah blah",
+      "id": "3",
+      "title": "egg hunt with me",
+    },
+  ],
+}
+`;
+
+exports[`With snapshots should return initial state 1`] = `
+Object {
+  "projects": Array [
+    Object {
+      "content": "blah blah blah",
+      "id": "1",
+      "title": "help me find peach",
+    },
+    Object {
+      "content": "blah blah blah",
+      "id": "2",
+      "title": "collect all the start",
+    },
+    Object {
+      "content": "blah blah blah",
+      "id": "3",
+      "title": "egg hunt with me",
+    },
+  ],
+}
+`;

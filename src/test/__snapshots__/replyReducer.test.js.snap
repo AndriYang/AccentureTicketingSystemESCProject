@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With snapshots should handle REPLY_CREATED 1`] = `Object {}`;
+
+exports[`With snapshots should handle REPLY_ERROR 1`] = `Object {}`;
+
+exports[`With snapshots should return initial state 1`] = `Object {}`;
