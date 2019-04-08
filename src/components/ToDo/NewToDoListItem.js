@@ -27,6 +27,28 @@ class NewToDoListItem extends Component {
 
   }
 
+  renderCard = ()=>{
+    const { todoId, todo, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
+    return(
+      <div className="container section project-details">
+        <div className="card z-depth-0">
+          <div>
+            <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
+            {this.renderContent()}
+          </div>
+          <div className="card-action gret lighten-4 grey-text">
+            <div>Status: {todo.solveStatus}</div>
+            <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
+            <div>{moment(todo.createdAt.toDate()).calendar()}</div>
+          </div>
+          <div class="offset-s6 left-align z-depth-0">
+            <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   renderContent = () => {
   const { addFormVisible } = this.state;
   const { todo } = this.props;
@@ -42,144 +64,100 @@ class NewToDoListItem extends Component {
   }
 };
 
+
 handleReply=()=>{
   console.log("in handleReply")
   this.setState({redirect:true})
 }
 
-  render() {
-    if(this.state.redirect){
-      const { todo, auth } = this.props;
-      return(
-        <Redirect to={{
-    pathname: '/reply',
-    state: { email: todo.email,
-    authorFirstName: todo.authorFirstName,
-    authorLastName: todo.authorLastName,
-    content: todo.content,
-    title: todo.title,
-    image: todo.imageURL,
-    phone: todo.phone,
-    authEmail: auth.email
-    }
-    }}
-    />
-      )
-    }
+render() {
+  if(this.state.redirect){
+    const { todo, auth } = this.props;
+    return(
+      <Redirect to={{
+  pathname: '/reply',
+  state: { email: todo.email,
+  authorFirstName: todo.authorFirstName,
+  authorLastName: todo.authorLastName,
+  content: todo.content,
+  title: todo.title,
+  image: todo.imageURL,
+  phone: todo.phone,
+  authEmail: auth.email
+  }
+  }}
+  />
+    )
+  }
 
-    const { projects, auth } = this.props;
-    if (!auth.uid) return<Redirect to='/' />
-    const { todoId, todo, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
-    //console.log(this.props);
-    if(todo.sel=="it"){
-      if(checkedTech==true){
+  const { projects, auth } = this.props;
+  if (!auth.uid) return<Redirect to='/' />
+  const { todoId, todo, criteria, checkedProcessing, checkedSolved, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
+  //console.log(this.props);
+  if(criteria=="filtercategory"){
+    if(todo.sel=="it"&&checkedTech==true){
         return(
-          <div className="container section project-details">
-            <div className="card z-depth-0">
-              <div>
-                <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
-                {this.renderContent()}
-              </div>
-              <div className="card-action gret lighten-4 grey-text">
-                <div>Status: {todo.solveStatus}</div>
-                <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
-                <div>{moment(todo.createdAt.toDate()).calendar()}</div>
-              </div>
-              <div class="offset-s6 left-align z-depth-0">
-                <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
-              </div>
-            </div>
-          </div>
-        )
-      }else{return null}
-
-    }else if (todo.sel=="general") {
-        if(checkedRecruit==true){
-          return (
-            <div className="container section project-details">
-              <div className="card z-depth-0">
-                <div>
-                  <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
-                  {this.renderContent()}
-                </div>
-                <div className="card-action gret lighten-4 grey-text">
-                  <div>Status: {todo.solveStatus}</div>
-                  <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
-                  <div>{moment(todo.createdAt.toDate()).calendar()}</div>
-                </div>
-                <div class="offset-s6 left-align z-depth-0">
-                  <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
-                </div>
-              </div>
-            </div>
-          );
-        }else{return null}
-
-      }else if (todo.sel=="finance") {
-        if(checkedPassword==true){
-          return (
-            <div className="container section project-details">
-              <div className="card z-depth-0">
-                <div>
-                  <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
-                  {this.renderContent()}
-                </div>
-                <div className="card-action gret lighten-4 grey-text">
-                  <div>Status: {todo.solveStatus}</div>
-                  <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
-                  <div>{moment(todo.createdAt.toDate()).calendar()}</div>
-                </div>
-                <div class="offset-s6 left-align z-depth-0">
-                  <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
-                </div>
-              </div>
-            </div>
-          );
-        }else{return null}
-
-      }else if (todo.sel=="other") {
-        if(checkedOther==true){
-          return (
-            <div className="container section project-details">
-              <div className="card z-depth-0">
-                <div>
-                  <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
-                  {this.renderContent()}
-                </div>
-                <div className="card-action gret lighten-4 grey-text">
-                  <div>Status: {todo.solveStatus}</div>
-                  <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
-                  <div>{moment(todo.createdAt.toDate()).calendar()}</div>
-                </div>
-                <div class="offset-s6 left-align z-depth-0">
-                  <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
-                </div>
-              </div>
-            </div>
-          );
-        }else{return null}
-      }else{
-        return (
           <div>
-            <p>This should not happen. This means the request has an invalid category.</p>
+          {this.renderCard()}
           </div>
-        )
+        );
+    }else if (todo.sel=="general"&&checkedRecruit==true) {
+          return (
+            <div>
+            {this.renderCard()}
+            </div>
+          );
+      }else if (todo.sel=="finance"&&checkedPassword==true) {
+          return (
+            <div>
+            {this.renderCard()}
+            </div>
+          );
+      }else if (todo.sel=="other"&&checkedOther==true) {
+          return (
+            <div>
+            {this.renderCard()}
+            </div>
+          );
+      }else{
+        return null
       }
-    }
+  }else if(criteria=="filterprogress"){
+    if(todo.solveStatus=="processing"&&checkedProcessing==true){
+        return(
+          <div>
+          {this.renderCard()}
+          </div>
+        );
+    }else if (todo.solveStatus=="solved"&&checkedSolved==true) {
+          return(
+            <div>
+            {this.renderCard()}
+            </div>
+          );
+      }else{
+        return null
+      }
+  }else{
+    return(
+      <div>
+      {this.renderCard()}
+      </div>
+    );
   }
-
-
-  const mapStateToProps = (state) => {
-    //console.log(state);
-    return {
-      projects: state.firestore.ordered.projects,
-      auth: state.firebase.auth
-    }
+}
+}
+const mapStateToProps = (state) => {
+  //console.log(state);
+  return {
+    projects: state.firestore.ordered.projects,
+    auth: state.firebase.auth
   }
+}
 
-  export default compose(
-    connect(mapStateToProps),
-    firestoreConnect([
-      { collection: 'projects' }
-    ])
-  )(NewToDoListItem);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'projects' }
+  ])
+)(NewToDoListItem);
