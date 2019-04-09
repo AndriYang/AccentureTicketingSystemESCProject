@@ -147,9 +147,56 @@ describe("guesscustomerquery", () => {
     expect(wrapper.props().addFormVisible).toBeDefined;
   });
 
-  it('should have props for handleEmailChange and fetchGravatar', function () {
+  it('should have props for handleChange and handleClick', function () {
     const wrapper = shallow(<guesscustomerquery/>);
     expect(wrapper.props().handleChange).toBeDefined;
     expect(wrapper.props().handleClick).toBeDefined;
+  });
+
+  it('should have props for toggle and handleSubmit', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().toggle).toBeDefined;
+    expect(wrapper.props().handleSubmit).toBeDefined;
+  });
+
+  it('should have props for renderChatBot and componentDidMount', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().renderChatBot).toBeDefined;
+    expect(wrapper.props().componentDidMount).toBeDefined;
+  });
+
+  it('should have props for fetchAuthToken and createUser', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().fetchAuthToken).toBeDefined;
+    expect(wrapper.props().createUser).toBeDefined;
+  });
+
+  it('should have props for createMessageListener and fetchPreviousMessages', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().createMessageListener).toBeDefined;
+    expect(wrapper.props().fetchPreviousMessages).toBeDefined;
+  });
+
+  it('should have props for handleNewUserMessage and handleChangeCaseID', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().handleNewUserMessage).toBeDefined;
+    expect(wrapper.props().handleChangeCaseID).toBeDefined;
+  });
+
+  it('should have props for handleSubmitCaseID and componentWillUnmount', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().handleSubmitCaseID).toBeDefined;
+    expect(wrapper.props().componentWillUnmount).toBeDefined;
+  });
+
+  it('should have props for handleUploadStart and handleUploadSuccess', function () {
+    const wrapper = shallow(<guesscustomerquery/>);
+    expect(wrapper.props().handleUploadStart).toBeDefined;
+    expect(wrapper.props().handleUploadSuccess).toBeDefined;
+  });
+
+  it('should have an initial email state', function () {
+    const wrapper = mount(<guesscustomerquery/>).get(0);
+    expect(wrapper.email).toEqual(undefined);
   });
 })

@@ -7,11 +7,26 @@ import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 import FileUploader from "react-firebase-file-uploader";
 import PreviewPicture from "./PreviewPicture"
+import { changeStatus } from '../../store/actions/statusActions'
 
 class NewToDoListItem extends Component {
   state ={
     addFormVisible : false,
-    redirect: false
+    redirect: false,
+    authorFirstName: '',
+    authorLastName: '',
+    authorId: '',
+    sel: '',
+    title: '',
+    content: '',
+    email:'',
+    image: '',
+    imageURL: '',
+    phone: '',
+    caseId:0,
+    toggle:false,
+    solveStatus:'',
+    createdAt:''
   }
 
   handleClick = (e) =>{
@@ -27,8 +42,38 @@ class NewToDoListItem extends Component {
 
   }
 
+  handleStatus = (e) => {
+    console.log("clicked");
+    const {todo} = this.props;
+    this.setState({
+      addFormVisible : todo.addFormVisible,
+      authorFirstName:  todo.authorFirstName,
+      authorLastName: todo.authorLastName,
+      authorId: todo.authorId,
+      sel: todo.sel,
+      title: todo.title,
+      content: todo.content,
+      email:todo.email,
+      image: todo.image,
+      imageURL: todo.imageURL,
+      phone: todo.phone,
+      caseId:todo.caseId,
+      toggle:todo.toggle,
+      solveStatus:todo.solveStatus,
+      createdAt:todo.createdAt,
+      }, function () {
+      console.log(this.state.solveStatus);
+      this.props.changeStatus(this.state);
+    })
+  }
+
+
+
   renderCard = ()=>{
     const { todoId, todo, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
+    // this.setState({
+    //   [todo.id]: todo.value
+    // })
     return(
       <div className="container section project-details">
         <div className="card z-depth-0">
@@ -37,12 +82,13 @@ class NewToDoListItem extends Component {
             {this.renderContent()}
           </div>
           <div className="card-action gret lighten-4 grey-text">
-            <div>Status: {todo.solveStatus}</div>
+            <div id="solveStatus">Status: {todo.solveStatus}</div>
             <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
             <div>{moment(todo.createdAt.toDate()).format('LLL')}</div>
           </div>
           <div class="offset-s6 left-align z-depth-0">
             <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
+            <button class="btn-small  purple darken-3" onClick={this.handleStatus} id="solveStatus">Status</button>
           </div>
         </div>
       </div>
@@ -154,9 +200,13 @@ const mapStateToProps = (state) => {
     auth: state.firebase.auth
   }
 }
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeStatus: (status) => dispatch(changeStatus(status))
+  }
+}
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps,mapDispatchToProps),
   firestoreConnect([
     { collection: 'projects' }
   ])

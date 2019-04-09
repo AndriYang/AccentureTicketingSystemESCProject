@@ -6,6 +6,7 @@ import dataReducer from './dataReducer'
 import formReducer from './formReducer'
 import replyReducer from './replyReducer'
 import ticketReducer from './ticketReducer'
+import statusReducer from './statusReducer'
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   data: dataReducer,
   form: formReducer,
   reply: replyReducer,
-  ticket: ticketReducer
+  ticket: ticketReducer,
+  status: statusReducer
 });
 
 export default rootReducer

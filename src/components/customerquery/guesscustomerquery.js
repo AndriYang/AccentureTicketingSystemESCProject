@@ -329,11 +329,10 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                   <div>
                     <label id= "category">Category:</label>
                     <select class="browser-default" id= "sel" onChange={this.handleChange}>
-                      <option value="sel">Please Select One</option>
+                      <option value="other">Other</option>
                       <option value="finance">Finance</option>
                       <option value="it">IT</option>
                       <option value="general">General</option>
-                      <option value="other">Other</option>
                     </select>
                   </div>
                   <div className="input-field">
