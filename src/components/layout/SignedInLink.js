@@ -8,7 +8,7 @@ export const SignedInLink = (props) => {
     <ul className="right">
       <li><NavLink to='/changepassword' id="changePass">Change Password</NavLink></li>
       <li><NavLink to='/' id="logout" onClick={props.signOut}>Log Out</NavLink></li>
-      <li><NavLink to='/newtodo' className='btn btn-floating pink lighten-1'>
+      <li><NavLink to='/dashboard' className='btn btn-floating pink lighten-1'>
         {props.profile.initials}
       </NavLink></li>
     </ul>

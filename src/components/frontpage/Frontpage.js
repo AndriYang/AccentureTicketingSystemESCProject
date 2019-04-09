@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 
-const Frontpage = () => {
+export const Frontpage = () => {
 
   return (
     <form c>

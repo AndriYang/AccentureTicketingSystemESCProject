@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-const About = () => {
+export const About = () => {
 
   return(
     <div className="card-panel">

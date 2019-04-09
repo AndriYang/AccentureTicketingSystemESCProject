@@ -54,7 +54,7 @@ export class NewToDoListItem extends Component {
             <div className="card-action gret lighten-4 grey-text">
               <div>Status: {todo.solveStatus}</div>
               <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
-              <div>{moment(todo.createdAt.toDate()).calendar()}</div>
+              <div>{moment(todo.createdAt.toDate()).format('LLL')}</div>
             </div>
           </div>
           <div>

@@ -283,12 +283,20 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
       <div className="container">
 
       <form className="white" id="submit-case-id">
+        <h5 className="grey-text text-darken-3  purple lighten-5">Status</h5>
       <div className="input-field">
         <label htmlFor="intpuCaseId">Already have a case ID?</label>
         <input type="text" id="input-case-id" onChange={this.handleChangeCaseID}/>
       </div>
-      <button className="btn purple darken-3 text-white" id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Check Progress</button>
+      <div>
+        <button className="btn purple darken-3 text-white" id="submit-case-id-button" onClick={this.handleSubmitCaseID}>Check Progress</button>
+      </div>
+
       </form>
+      <div className="">
+        <button id="chatbot" className="btn purple darken-3 text-white" id="open-chat-bot" onClick={this.handleClick}>Chat with AccenBot</button>
+        {this.renderChatBot()}
+      </div>
       <Drawer
         open={this.state.toggle}
         onRequestClose={this.toggle}
@@ -296,14 +304,9 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
         <h2 className="white-text">Your case ID is {this.state.caseId}. Please save it for future reference!</h2>
       </Drawer>
 
-      <div class="divider"></div>
-      <div className="">
-        <button className="btn purple darken-3 text-white" id="open-chat-bot" onClick={this.handleClick}>Chat with AccenBot</button>
-        {this.renderChatBot()}
-      </div>
         <div >
                 <form onSubmit={this.handleSubmit} className="white" id="createForm">
-                  <h5 className="grey-text text-darken-3">Contact Us</h5>
+                  <h5 className="grey-text text-darken-3  purple lighten-5">Contact Us</h5>
                     <div className="input-field">
                       <label htmlFor="authorFirstName">First Name</label>
                       <input type="text" id="authorFirstName" onChange={this.handleChange}/>

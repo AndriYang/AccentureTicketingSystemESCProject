@@ -137,11 +137,11 @@ export class Dashboard extends Component {
     if(this.state.selectedPath=="filterprogress"){
       return (
         <div className="row s8 m2" >
-        <div onClick={this.handleCheckProcessing}>
+        <div id="status" onClick={this.handleCheckProcessing}>
         <button className="btn purple lighten-3 text-white" >
         Processing
         </button></div>
-        <div onClick={this.handleCheckSolved}>
+        <div id="status" onClick={this.handleCheckSolved}>
         <button className="btn purple lighten-3 text-white" >
         Solved
         </button></div>
@@ -202,8 +202,10 @@ export class Dashboard extends Component {
               <div class="divider"></div>
               <div><span class="flow-text">Tickets:</span></div>
               <div class="divider"></div>
-              <div className="col s12 m6">
-                {this.renderToDos()}
+              <div class="card purple lighten-5">
+                <div className="col s12 m6" >
+                  {this.renderToDos()}
+                </div>
               </div>
           </div>
         </Body>

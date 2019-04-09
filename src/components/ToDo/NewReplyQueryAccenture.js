@@ -67,37 +67,42 @@ export class NewReplyQuery extends Component {
       <div className="container1">
             <div>
               <form onSubmit={this.handleSubmit} className="white">
-              <label>Title</label>
-              <h6>{this.props.location.state.title}</h6>
-              <label>Description</label>
-              <h6>{this.props.location.state.content}</h6>
-              <div class="divider"></div>
-              <h2> Send Email </h2>
-              <label> Recipient </label>
-              <h6>{this.props.location.state.email}</h6>
-              <br />
-              <label> Sender </label>
-              <h6>{this.props.location.state.authEmail}</h6>
-              <br />
-              <label> Subject </label>
-              <br />
-              <input value={email.subject}
-                onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
-              <div  />
-              <label> Your Phone Number </label>
-                <br/>
-                <h6>{this.props.location.state.phone}</h6>
-                <input value = {text.recipient}
-                  onChange={e => this.setState({ text: {...text, recipient: e.target.value}})} />
-              <label> Message </label>
-              <br />
+                <h2 class="purple lighten-5">Feedback </h2>
+                <label>Title</label>
+                <h6>{this.props.location.state.title}</h6>
+                <label>Description</label>
+                <h6>{this.props.location.state.content}</h6>
+                <div class="divider"></div>
+                <h2 class="purple lighten-5"> Reply </h2>
+                <label> Recipient </label>
+                <h6>{this.props.location.state.email}</h6>
+                <br />
+                <label> Sender </label>
+                <h6>{this.props.location.state.authEmail}</h6>
+                <br />
+                <label> Subject </label>
+                <br />
+                <input value={email.subject}
+                  onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
+                <div  />
+                <label> Your Phone Number </label>
+                  <br/>
+                  <h6>{this.props.location.state.phone}</h6>
+                  <input value = {text.recipient}
+                    onChange={e => this.setState({ text: {...text, recipient: e.target.value}})} />
+                <label> Message </label>
+                <br />
                 <textarea id="textarea" rows={3} value={email.text, text.textmessage}
                   onChange={e => this.setState({
                     email: { ...email, text: e.target.value },
                     text: {...text, textmessage: e.target.value} })} />
                 <div  />
-              <button id="emailBtn" onClick={this.sendEmail}> Send Email </button>
-              <button id="smsBtn" onClick={this.sendText}> Send SMS </button>
+                <div class="row">
+                  <div >
+                    <button class="btn-small purple darken-3" id="emailBtn" onClick={this.sendEmail}><i class="large material-icons">mail_outline</i> Send Email </button>
+                    <button class="btn-small purple darken-3" id="smsBtn" onClick={this.sendText}> <i class="large material-icons">message</i> Send SMS </button>
+                  </div>
+                </div>
               </form>
             </div>
       </div>

@@ -39,7 +39,7 @@ class NewToDoListItem extends Component {
           <div className="card-action gret lighten-4 grey-text">
             <div>Status: {todo.solveStatus}</div>
             <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
-            <div>{moment(todo.createdAt.toDate()).calendar()}</div>
+            <div>{moment(todo.createdAt.toDate()).format('LLL')}</div>
           </div>
           <div class="offset-s6 left-align z-depth-0">
             <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
