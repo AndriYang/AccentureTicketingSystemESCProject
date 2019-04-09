@@ -61,6 +61,7 @@ class NewToDoListItem extends Component {
       toggle:todo.toggle,
       solveStatus:todo.solveStatus,
       createdAt:todo.createdAt,
+      id: todo.id
       }, function () {
       console.log(this.state.solveStatus);
       this.props.changeStatus(this.state);
@@ -194,7 +195,7 @@ render() {
 }
 }
 const mapStateToProps = (state) => {
-  //console.log(state);
+  console.log(state);
   return {
     projects: state.firestore.ordered.projects,
     auth: state.firebase.auth
