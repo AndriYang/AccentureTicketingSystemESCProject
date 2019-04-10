@@ -72,9 +72,6 @@ class NewToDoListItem extends Component {
 
   renderCard = ()=>{
     const { todoId, todo, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
-    // this.setState({
-    //   [todo.id]: todo.value
-    // })
     return(
       <div className="container section project-details">
         <div className="card z-depth-0">
@@ -130,7 +127,8 @@ render() {
   title: todo.title,
   image: todo.imageURL,
   phone: todo.phone,
-  authEmail: auth.email
+  authEmail: auth.email,
+  caseId: todo.caseId
   }
   }}
   />

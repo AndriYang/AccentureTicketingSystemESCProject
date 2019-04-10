@@ -9,7 +9,7 @@ export class NewReplyQuery extends Component {
     email: {
       recipient: this.props.location.state.email,
       sender: this.props.location.state.authEmail,
-      subject: 'RE: ' + this.props.location.state.title,
+      subject: 'RE: ' + this.props.location.state.title + " (CaseID: " + this.props.location.state.caseId + ")",
       text: ''
     },
     text: {
@@ -88,8 +88,6 @@ export class NewReplyQuery extends Component {
                 <label> Your Phone Number </label>
                   <br/>
                   <h6>{this.props.location.state.phone}</h6>
-                  <input value = {text.recipient}
-                    onChange={e => this.setState({ text: {...text, recipient: e.target.value}})} />
                 <label> Message </label>
                 <br />
                 <textarea id="textarea" rows={3} value={email.text, text.textmessage}

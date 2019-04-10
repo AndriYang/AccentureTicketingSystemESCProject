@@ -37,7 +37,7 @@ export class AdminSignIn extends Component {
             <input type="password" id="password" onChange={this.handleChange}/>
           </div>
           <div className="input-field">
-            <button className="btn purple darken-3 z-depth-0" id="button">Login</button>
+            <button className="btn purple darken-3 text-white z-depth-0" id="button">Login</button>
             <div className="red-text center">
               { authError ? <p> {authError} </p> : null }
             </div>
