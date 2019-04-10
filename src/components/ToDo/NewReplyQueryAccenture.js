@@ -20,7 +20,7 @@ export class NewReplyQuery extends Component {
 
 
   sendEmail = _ => {
-    const { email } = this.state;
+    const { email, text } = this.state;
     // fetch(`http://127.0.0.1:4000/send-email?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`) //query string url
     //   .catch(err => console.error(err))
       // fetch(`https://ug-api.acnapiv3.io/swivel/email-services/api/mailer`) //query string url
@@ -34,15 +34,10 @@ export class NewReplyQuery extends Component {
       // return body;
       fetch(`http://localhost:4000/express_backend?recipient=${email.recipient}&sender=${email.sender}&topic=${email.subject}&text=${email.text}`).then(res=>console.log(res)).catch(err=>console.log(err));
       // this.callBackendAPI().then(res => console.log(res)).catch(err => console.log(err));
-
+      fetch(`http://127.0.0.1:4000/send-text?recipient=${text.recipient}&textmessage=${text.textmessage}`)
+      .catch(err => console.error(err))
   }
 
-  sendText = _ => {
-  console.log(this.state);
-  const { text } = this.state;
-  fetch(`http://127.0.0.1:4000/send-text?recipient=${text.recipient}&textmessage=${text.textmessage}`)
-  .catch(err => console.error(err))
-  }
 
   handleChange = (e) => {
     this.setState({
@@ -97,8 +92,7 @@ export class NewReplyQuery extends Component {
                 <div  />
                 <div class="row">
                   <div >
-                    <button class="btn-small purple darken-3" id="emailBtn" onClick={this.sendEmail}><i class="large material-icons">mail_outline</i> Send Email </button>
-                    <button class="btn-small purple darken-3" id="smsBtn" onClick={this.sendText}> <i class="large material-icons">message</i> Send SMS </button>
+                    <button class="btn-small purple darken-3" id="emailBtn" onClick={this.sendEmail}><i class="large material-icons">mail_outline</i> Reply </button>
                   </div>
                 </div>
               </form>

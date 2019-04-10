@@ -40,8 +40,15 @@ export class guesscustomerquery extends Component {
     caseId:0,
     toggle:false,
     solveStatus:'',
-    addFormVisible: false
+    addFormVisible: false,
   }
+
+  sendCustomerConfirmationEmail = _ => {
+      fetch(`http://localhost:4000/confirmation_email?recipient=${this.state.email}`).then(res=>console.log(res)).catch(err=>console.log(err));
+      fetch(`http://localhost:4000/AdminConfirmation_email?sender=${this.state.email}`).then(res=>console.log(res)).catch(err=>console.log(err));
+  }
+
+
 
   handleChange = (e) => {
     this.setState({
@@ -278,7 +285,6 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 
   render() {
     //if (!auth.uid) return<Redirect to='/signin' />
-
     return (
       <div className="container">
 
@@ -362,7 +368,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                   {this.state.imageURL && <img class="responsive-img" src={this.state.imageURL} />}
                 </div>
                   <div className="input-field">
-                    <button id="create" className="btn purple darken-3 text-white">Create</button>
+                    <button id="create" className="btn purple darken-3 text-white"  onClick={this.sendCustomerConfirmationEmail}>Create</button>
                   </div>
                 </form>
 

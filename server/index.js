@@ -55,7 +55,7 @@ app.get('/express_backend', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace-with-your-own-server-token'},
-       'Server-Token': 'replace-with-your-own-server-token'},
+       'Server-Token': 'replace_with_your_own_server_token'},
       body:
      { subject: topic,
        sender: sender,
@@ -67,6 +67,60 @@ app.get('/express_backend', (req,res) => {
         console.log(body);
     });
 });
+
+//for sending confirmation email
+app.get('/confirmation_email', (req,res) => {
+    res.send("hmmmm");
+    //Get Variables from query string in the search bar
+    const { recipient} = req.query;
+    console.log("here");
+    var request = require("request");
+    var options = { method: 'POST',
+    url: 'https://ug-api.acnapiv3.io/swivel/email-services/api/mailer',
+    headers:
+     { 'Postman-Token': '9518b75f-e3c0-44aa-85ce-9afdfc7310a0',
+       'cache-control': 'no-cache',
+       'Content-Type': 'application/json',
+       //'Server-Token': 'replace_with_your_own_server_token'},
+       'Server-Token': 'replace_with_your_own_server_token'},
+      body:
+     { subject: "Thank you for sending us your feedback",
+       sender: '100@accenture.com',
+       recipient: recipient,
+       html: 'thank you' },
+      json: true };
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+        console.log(body);
+    });
+});
+
+app.get('/AdminConfirmation_email', (req,res) => {
+    res.send("hmmmm");
+    //Get Variables from query string in the search bar
+    const { sender} = req.query;
+    console.log("here");
+    var request = require("request");
+    var options = { method: 'POST',
+    url: 'https://ug-api.acnapiv3.io/swivel/email-services/api/mailer',
+    headers:
+     { 'Postman-Token': '9518b75f-e3c0-44aa-85ce-9afdfc7310a0',
+       'cache-control': 'no-cache',
+       'Content-Type': 'application/json',
+       //'Server-Token': 'replace-with-your-own-server-token'},
+       'Server-Token': 'replace_with_your_own_server_token'},
+      body:
+     { subject: "There is a new feedback log! Please check it!",
+       sender: sender,
+       recipient: '_ADMIN_EMAIL',
+       html: 'thank you' },
+      json: true };
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+        console.log(body);
+    });
+});
+
 
 
 // const appID = '_APP_ID';
