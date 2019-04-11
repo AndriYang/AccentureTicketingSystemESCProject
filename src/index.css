@@ -17,8 +17,11 @@ body {
 }
 
 form{
-  padding: 20px;
-  margin-top: 60px;
+  padding: 200px;
+  margin-top: 0px;
+  background-color: #d1c4e9 ;
+  background: url(/img/v5.jpg) no-repeat;
+  background-size: cover;
 }
 
 form button, form h5{
