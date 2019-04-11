@@ -104,6 +104,19 @@ export class Dashboard extends Component {
     );
   }
 
+  renderRealtimeChat(){
+    console.log("in realtimechat")
+    if(this.state.selectedPath=="realTimeChat"){
+      return(
+
+        <Redirect to='/realtimechatagent' />
+
+      )
+    }else{
+      return null
+    }
+  }
+
   renderNotifications(){
     if(this.state.selectedPath=="notifications"){
       const { projects, auth, notifications } = this.props;
@@ -185,6 +198,12 @@ export class Dashboard extends Component {
           </NavIcon>
           <Text>All tickets</Text>
         </Nav>
+        <Nav id="realTimeChat">
+          <NavIcon>
+            <Icon icon={render} />
+          </NavIcon>
+          <Text>RealTime Chat</Text>
+        </Nav>
         <Nav id="notifications">
           <NavIcon>
             <Icon icon={render} />
@@ -205,9 +224,10 @@ export class Dashboard extends Component {
         </Nav>
       </SideNav>
       </Navigation>
-      <Body>
+      <Body class="col">
           <div className="dashboard container">
             <div class="row" >
+            {this.renderRealtimeChat()}
             {this.renderCheckBoxesProg()}
             {this.renderCheckBoxesCat()}
             {this.renderNotifications()}

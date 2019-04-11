@@ -86,7 +86,7 @@ class NewToDoListItem extends Component {
           </div>
           <div class="offset-s6 left-align z-depth-0">
             <button class="btn-small  purple darken-3" onClick={this.handleReply} id="replyButton">Reply</button>
-            <button class="btn-small  purple darken-3" onClick={this.handleStatus} id="solveStatus">Status</button>
+            <button class="btn-small  purple darken-3" onClick={this.handleStatus} id="solveStatus">Solve</button>
           </div>
         </div>
       </div>
