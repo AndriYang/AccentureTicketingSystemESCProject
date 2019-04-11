@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export const Frontpage = () => {
 
   return (
-    <form c>
+    <form >
 
       <div className="card-content">
         <div className="row ">
