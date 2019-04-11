@@ -34,6 +34,7 @@ export class Dashboard extends Component {
     checkedPassword: true,
     checkedRecruit: true,
     checkedTech: true,
+    checkedRecruitment: true,
     checkedOther: true,
     selectedPath:'',
     checkedProcessing:true,
@@ -48,12 +49,19 @@ export class Dashboard extends Component {
     this.setState({checkedTech: !this.state.checkedTech});
   }
   handleCheckPassword = event =>{
+    console.log("checked finance")
     this.setState({checkedPassword: !this.state.checkedPassword});
   }
   handleCheckRecruit = event =>{
+    console.log("checked general")
     this.setState({checkedRecruit: !this.state.checkedRecruit});
   }
+  handleCheckRecruitment = event =>{
+    console.log("checked recruitment")
+    this.setState({checkedRecruitment: !this.state.checkedRecruitment});
+  }
   handleCheckOther = event =>{
+    console.log("checked other")
     this.setState({checkedOther: !this.state.checkedOther});
   }
   handleCheckProcessing = event =>{
@@ -70,6 +78,7 @@ export class Dashboard extends Component {
         <NewToDoListItem key={key} todoId={key} todo={value}
           checkedTech={this.state.checkedTech}
           checkedRecruit={this.state.checkedRecruit}
+          checkedRecruitment={this.state.checkedRecruitment}
           checkedPassword={this.state.checkedPassword}
           checkedOther={this.state.checkedOther}
           checkedProcessing={this.state.checkedProcessing}
@@ -113,19 +122,23 @@ export class Dashboard extends Component {
       return (
         <div className="row s8 m2" >
         <div onClick={this.handleCheckTech}>
-        <button className="btn purple lighten-3 text-white" id="open-chat-bot" >
+        <button className={this.state.checkedTech ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot" >
         IT
         </button></div>
         <div onClick={this.handleCheckPassword}>
-        <button className="btn purple lighten-3 text-white" id="open-chat-bot" >
+        <button className={this.state.checkedPassword ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot" >
         Finance
         </button></div>
         <div onClick={this.handleCheckRecruit}>
-        <button className="btn purple lighten-3 text-white" id="open-chat-bot" >
+        <button className={this.state.checkedRecruit ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot" >
         General
         </button></div>
+        <div onClick={this.handleCheckRecruitment}>
+        <button className={this.state.checkedRecruitment ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot" >
+        Recruitment
+        </button></div>
         <div onClick={this.handleCheckOther}>
-        <button className="btn purple lighten-3 text-white" id="open-chat-bot" >
+        <button className={this.state.checkedOther ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot" >
         Other
         </button></div>
         </div>
@@ -138,11 +151,11 @@ export class Dashboard extends Component {
       return (
         <div className="row s8 m2" >
         <div id="status" onClick={this.handleCheckProcessing}>
-        <button className="btn purple lighten-3 text-white" >
+        <button className={this.state.checkedProcessing ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} >
         Processing
         </button></div>
         <div id="status" onClick={this.handleCheckSolved}>
-        <button className="btn purple lighten-3 text-white" >
+        <button className={this.state.checkedSolved ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} >
         Solved
         </button></div>
         </div>

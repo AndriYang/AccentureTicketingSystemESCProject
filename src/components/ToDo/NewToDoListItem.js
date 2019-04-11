@@ -137,7 +137,7 @@ render() {
 
   const { projects, auth } = this.props;
   if (!auth.uid) return<Redirect to='/' />
-  const { todoId, todo, criteria, checkedProcessing, checkedSolved, checkedPassword, checkedTech, checkedRecruit, checkedOther } = this.props;
+  const { todoId, todo, criteria, checkedProcessing, checkedSolved, checkedPassword, checkedTech, checkedRecruit, checkedOther, checkedRecruitment } = this.props;
   //console.log(this.props);
   if(criteria=="filtercategory"){
     if(todo.sel=="it"&&checkedTech==true){
@@ -153,6 +153,12 @@ render() {
             </div>
           );
       }else if (todo.sel=="finance"&&checkedPassword==true) {
+          return (
+            <div>
+            {this.renderCard()}
+            </div>
+          );
+      }else if (todo.sel=="recruitment"&&checkedRecruitment==true) {
           return (
             <div>
             {this.renderCard()}
