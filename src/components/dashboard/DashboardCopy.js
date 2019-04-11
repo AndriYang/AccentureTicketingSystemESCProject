@@ -38,7 +38,8 @@ export class Dashboard extends Component {
     checkedOther: true,
     selectedPath:'',
     checkedProcessing:true,
-    checkedSolved:true
+    checkedSolved:true,
+    checkedDeadline:true
   };
 
   onItemSelection = (arg) => {
@@ -70,12 +71,16 @@ export class Dashboard extends Component {
   handleCheckSolved = event =>{
     this.setState({checkedSolved: !this.state.checkedSolved});
   }
+  handleCheckDeadline = event =>{
+    this.setState({checkedDeadline: !this.state.checkedDeadline});
+  }
   renderToDos() {
     const { projects } = this.props;
     const toDos = _.map(projects, (value, key) => {
       return(
       <div>
         <NewToDoListItem key={key} todoId={key} todo={value}
+        checkedDeadline={this.state.checkedDeadline}
           checkedTech={this.state.checkedTech}
           checkedRecruit={this.state.checkedRecruit}
           checkedRecruitment={this.state.checkedRecruitment}
@@ -163,6 +168,19 @@ export class Dashboard extends Component {
     }
   }
 
+  renderCheckBoxesDDL(){
+    if(this.state.selectedPath=="filterdeadline"){
+      return (
+        <div className="row s8 m2" >
+        <div id="status" onClick={this.handleCheckDeadline}>
+        <button className={this.state.checkedDeadline ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} >
+        Showing ddl Within 3 days:
+        </button></div>
+        </div>
+      )
+    }
+  }
+
   render() {
     //console.log(this.props);
     const { projects, auth, notifications } = this.props;
@@ -203,6 +221,12 @@ export class Dashboard extends Component {
           </NavIcon>
           <Text>Filter by Progress</Text>
         </Nav>
+        <Nav id="filterdeadline">
+          <NavIcon>
+            <Icon icon={render} />
+          </NavIcon>
+          <Text>Filter by Deadline</Text>
+        </Nav>
       </SideNav>
       </Navigation>
       <Body>
@@ -211,6 +235,7 @@ export class Dashboard extends Component {
             {this.renderCheckBoxesProg()}
             {this.renderCheckBoxesCat()}
             {this.renderNotifications()}
+            {this.renderCheckBoxesDDL()}
               </div>
               <div class="divider"></div>
               <div><span class="flow-text">Tickets:</span></div>

@@ -40,6 +40,7 @@ export class guesscustomerquery extends Component {
     caseId:0,
     toggle:false,
     solveStatus:'',
+    deadline:'',
     addFormVisible: false
   }
 
@@ -75,6 +76,9 @@ export class guesscustomerquery extends Component {
     this.setState({ toggle: !toggle })
   }
   handleSubmit = (e) => {
+    var days=7; // Days you want to subtract
+    var date = new Date();
+    var last = new Date(date.getTime() + (days * 24 * 60 * 60 * 1000));
     e.preventDefault();
     //console.log(this.state)
     var uid1 = localStorage.getItem("cc-uid");
@@ -88,7 +92,11 @@ export class guesscustomerquery extends Component {
           localStorage.setItem("cc-uid",result.uid);
           var uid2 = localStorage.getItem("cc-uid");
           console.log("uid2 is ",uid2);
-          this.setState({caseId: uid2, solveStatus: "processing"}, function () {
+
+          this.setState({
+            deadline:last,
+            caseId: uid2,
+            solveStatus: "processing"}, function () {
           console.log(this.state.caseId);
           this.props.createTicket(this.state);
           this.toggle();
@@ -98,7 +106,7 @@ export class guesscustomerquery extends Component {
       })
 });
 }else{
-  this.setState({caseId: uid1, solveStatus: "processing"}, function () {
+  this.setState({deadline:last, caseId: uid1, solveStatus: "processing"}, function () {
   console.log(this.state.caseId);
   this.props.createTicket(this.state);
   this.toggle();
