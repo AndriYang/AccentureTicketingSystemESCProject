@@ -54,7 +54,7 @@ app.get('/express_backend', (req,res) => {
      { 'Postman-Token': '9518b75f-e3c0-44aa-85ce-9afdfc7310a0',
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
-       //'Server-Token': 'replace-with-your-own-server-token'},
+       //'Server-Token': 'replace_with_your_own_server_tokenn'},
        'Server-Token': 'replace_with_your_own_server_token'},
       body:
      { subject: topic,
@@ -112,7 +112,8 @@ app.get('/AdminConfirmation_email', (req,res) => {
       body:
      { subject: "There is a new feedback log! Please check it!",
        sender: sender,
-       recipient: '_ADMIN_EMAIL',
+       // recipient: '_ADMIN_EMAIL_',
+       recipient: 'andri_susanto@mymail.sutd.edu.sg',
        html: 'thank you' },
       json: true };
     request(options, function (error, response, body) {

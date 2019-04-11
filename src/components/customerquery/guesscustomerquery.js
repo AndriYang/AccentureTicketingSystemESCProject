@@ -33,13 +33,14 @@ export class guesscustomerquery extends Component {
     title: '',
     content: '',
     email:'',
+    emailError:false,
     image: '',
     imageURL: '',
     phone: '',
     caseId:0,
     toggle:false,
     solveStatus:'',
-    addFormVisible: false,
+    addFormVisible: false
   }
 
   sendCustomerConfirmationEmail = _ => {
@@ -53,6 +54,9 @@ export class guesscustomerquery extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
+    if(e.target.id==='email'){
+    this.validateEmail(e.target.value);
+   }
   }
 
   handleClick = (e) =>{
@@ -282,6 +286,21 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 
   };
 
+  validateEmail(email){
+   const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+   const result = pattern.test(email);
+   if(result===true){
+     this.setState({
+       emailError:false,
+       email : email
+     })
+   }else{
+     this.setState({
+       emailError:true
+     })
+   }
+ }
+
   render() {
     //if (!auth.uid) return<Redirect to='/signin' />
     return (
@@ -324,12 +343,13 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                       <div class="input-field col s12">
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" class="validate" onChange={this.handleChange}/>
-                        <span class="helper-text" data-error="wrong" data-success="right"></span>
+                        {this.state.emailError ? <span style={{color: "red"}}>Please Enter valid email address</span> : <span  style={{color: "red"}}>*Required</span>}
                       </div>
                     </div>
                     <div className="input-field">
                       <label htmlFor="phone">Phone Number</label>
-                      <input type="text" id="phone" onChange={this.handleChange}/>
+                      <input type="text" id="phone" class="validate" onChange={this.handleChange}/>
+                      <span  style={{color: "red"}}>*Required</span>
                     </div>
                   <div>
                     <label id= "category">Category:</label>
