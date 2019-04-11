@@ -135,11 +135,12 @@ class NewToDoListItem extends Component {
             <button className="card-title  btn-flat" id="titlename" onClick={this.handleClick}>{ todo.title }</button>
             {this.renderContent()}
           </div>
-          <div className="card-action gret lighten-4 red-text">
-          Deadline: {moment(todo.deadline.toDate()).format('LLL')}
-          <DatePicker onChange={this.handleChangeDDL}/>
-          </div>
+
           <div className="card-action gret lighten-4 grey-text">
+            <div className=" card-title input-field">
+              <label htmlFor="date"><span style={{color: "red"}}>Deadline: {moment(todo.deadline.toDate()).format('LLL')}</span></label>
+              <DatePicker onChange={this.handleChangeDDL}/>
+            </div>
             <div id="solveStatus">Status: {todo.solveStatus}</div>
             <div>Posted by {todo.authorFirstName} {todo.authorLastName}</div>
             <div>{moment(todo.createdAt.toDate()).format('LLL')}</div>

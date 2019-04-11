@@ -20,6 +20,8 @@ app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it
 //twilio sms
 // const accountID= '_ACCOUNT_ID';
 // const authToken = '_AUTH_TOKEN';
+const accountID= '_ACCOUNT_ID';
+const authToken = '_AUTH_TOKEN';
 const client = new twilio(accountID, authToken);
 
 app.get('/send-text', (req, res) => {
@@ -124,6 +126,8 @@ app.get('/AdminConfirmation_email', (req,res) => {
 
 // const appID = '_APP_ID';
 // const apiKey = '_API_KEY';
+var appID = "_APP_ID";
+var apiKey = "_API_KEY";
 const agentUID = 'Agent';
 
 const url = 'https://api.cometchat.com/v1';
