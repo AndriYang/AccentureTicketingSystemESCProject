@@ -182,6 +182,7 @@ const requestAuthToken = uid => {
   });
 };
 
+
 app.get('/api/users', (req, res) => {
   console.log("Starting fetching use from server.js.");
   axios
