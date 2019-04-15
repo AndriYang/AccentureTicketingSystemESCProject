@@ -1,5 +1,363 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ChangePassword component it matches the snapshot 1`] = `
+<div
+  className="dashboard container"
+>
+  <div
+    class="row"
+  >
+    <div
+      className="col s8 m2"
+    >
+      <div
+        className="text-deep-purple lighten-2"
+      >
+        <span
+          class="flow-text"
+        >
+          Showing categories:
+        </span>
+      </div>
+      <div
+        class="divider"
+      />
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                IT
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                Finance
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                General
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                Other
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col s12 m5 offset-m1"
+    >
+      <div
+        className="selection"
+      >
+        <div
+          className="card z-depth-0"
+        >
+          <div
+            className="card-content"
+          >
+            <span
+              className="card-title"
+            >
+              Notifications
+            </span>
+            <ul
+              className="notifications"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="divider"
+  />
+  <div>
+    <span
+      class="flow-text"
+    >
+      Tickets:
+    </span>
+  </div>
+  <div
+    class="divider"
+  />
+  <div
+    className="col s12 m6"
+  >
+    <div
+      className="col s10 offset-s1 center-align"
+    >
+      <img
+        alt="Nothing was found"
+        id="nothing-was-found"
+        src="/img/nothing.png"
+      />
+      <h4>
+        You have completed all the tasks
+      </h4>
+      <p>
+        Start by clicking add button in the bottom of the screen
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dashboard component it matches the snapshot 1`] = `
+<div
+  className="dashboard container"
+>
+  <div
+    class="row"
+  >
+    <div
+      className="col s8 m2"
+    >
+      <div
+        className="text-deep-purple lighten-2"
+      >
+        <span
+          class="flow-text"
+        >
+          Showing categories:
+        </span>
+      </div>
+      <div
+        class="divider"
+      />
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                IT
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                Finance
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                General
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+      <div
+        class="col s3"
+        id="box1"
+        onClick={[Function]}
+      >
+        <div>
+          <form
+            action="#"
+          >
+            <label>
+              <input
+                checked={true}
+                name="isGoing"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <span>
+                Other
+              </span>
+            </label>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col s12 m5 offset-m1"
+    >
+      <div
+        className="selection"
+      >
+        <div
+          className="card z-depth-0"
+        >
+          <div
+            className="card-content"
+          >
+            <span
+              className="card-title"
+            >
+              Notifications
+            </span>
+            <ul
+              className="notifications"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="divider"
+  />
+  <div>
+    <span
+      class="flow-text"
+    >
+      Tickets:
+    </span>
+  </div>
+  <div
+    class="divider"
+  />
+  <div
+    className="col s12 m6"
+  >
+    <div
+      className="col s10 offset-s1 center-align"
+    >
+      <img
+        alt="Nothing was found"
+        id="nothing-was-found"
+        src="/img/nothing.png"
+      />
+      <h4>
+        You have completed all the tasks
+      </h4>
+      <p>
+        Start by clicking add button in the bottom of the screen
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`print the initial state 1`] = `
 Dashboard {
   "context": undefined,

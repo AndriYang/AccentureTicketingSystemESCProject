@@ -4,6 +4,7 @@ import {ChangePassword} from '../components/auth/ChangePassword';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store'
+import { create } from "react-test-renderer";
 
 configure({ adapter: new Adapter() });
 
@@ -73,3 +74,10 @@ configure({ adapter: new Adapter() });
 
     expect(data).toMatchSnapshot();
   })
+
+  describe("ChangePassword component", () => {
+    test("it matches the snapshot", () => {
+      const component = create(<ChangePassword />);
+      expect(component.toJSON()).toMatchSnapshot();
+    });
+  });
