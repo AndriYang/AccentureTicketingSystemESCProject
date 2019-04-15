@@ -14,19 +14,20 @@ body {
   background-position: bottom;
   background-color: #95e8f3;
   min-height: 100%;
+
 }
 
 form{
   padding: 20px;
   margin-top: 60px;
-
+  background: url(/img/v9.3.jpg) no-repeat;
 }
 
 .form-background{
-  padding: 200px;
+  padding: 300px;
   margin-top: 0px;
   background-color: #d1c4e9 ;
-  background: url(/img/v5.jpg) no-repeat;
+  background: url(/img/v9.1.jpg) no-repeat;
   background-size: cover;
 }
 

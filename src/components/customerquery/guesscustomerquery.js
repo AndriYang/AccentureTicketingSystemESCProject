@@ -37,6 +37,7 @@ export class guesscustomerquery extends Component {
     image: '',
     imageURL: '',
     phone: '',
+    phoneError:false,
     caseId:0,
     toggle:false,
     solveStatus:'',
@@ -56,8 +57,11 @@ export class guesscustomerquery extends Component {
       [e.target.id]: e.target.value
     })
     if(e.target.id==='email'){
-    this.validateEmail(e.target.value);
-   }
+      this.validateEmail(e.target.value);
+    }
+    if(e.target.id==='phone'){
+      this.validateNumber(e.target.value);
+    }
   }
 
   handleClick = (e) =>{
@@ -309,8 +313,33 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
    }
  }
 
+ validateNumber(phone){
+   // const pattern = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
+   // const pattern = /^\d{3}(\))?\d{3}\d{4}$/;
+   const pattern = /^\d{8}$/;
+   const result = pattern.test(phone);
+   if(result==true){
+     this.setState({
+       phoneError:false,
+       phone: phone
+     })
+   }else{
+     this.setState({
+       phoneError:true
+     })
+   }
+ }
+
   render() {
-    //if (!auth.uid) return<Redirect to='/signin' />
+    const { authorFirstName, sel, title, content, email, phone } = this.state;
+    const isEnabled =
+      authorFirstName.length > 0 &&
+      sel.length > 0 &&
+      title.length > 0 &&
+      content.length > 0 &&
+      email.length > 0 &&
+      phone.length > 0 ;
+    // if (!auth.uid) return<Redirect to='/signin' />
     return (
       <div className="container">
 
@@ -351,22 +380,23 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                       <div class="input-field col s12">
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" class="validate" onChange={this.handleChange}/>
-                        {this.state.emailError ? <span style={{color: "red"}}>Please Enter valid email address</span> : <span  style={{color: "red"}}>*Required</span>}
+                        {this.state.emailError ? <span style={{color: "red"}}>Please Enter valid email address</span> : ''}
                       </div>
                     </div>
                     <div className="input-field">
                       <label htmlFor="phone">Phone Number</label>
                       <input type="text" id="phone" class="validate" onChange={this.handleChange}/>
-                      <span  style={{color: "red"}}>*Required</span>
+                      {this.state.phoneError ? <span style={{color: "red"}}>Please Enter valid contact number</span> : ''}
                     </div>
                   <div>
                     <label id= "category">Category:</label>
                     <select class="browser-default" id= "sel" onChange={this.handleChange}>
-                      <option value="other">Other</option>
+                      <option value="" disabled selected>Choose your category</option>
                       <option value="finance">Finance</option>
                       <option value="it">IT</option>
                       <option value="general">General</option>
                       <option value="recruitment">Recruitment</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                   <div className="input-field">
@@ -396,7 +426,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                   {this.state.imageURL && <img class="responsive-img" src={this.state.imageURL} />}
                 </div>
                   <div className="input-field">
-                    <button id="create" className="btn purple darken-3 text-white"  onClick={this.sendCustomerConfirmationEmail}>Create</button>
+                    <button disabled={!isEnabled} id="create" className="btn purple darken-3 text-white"  onClick={this.sendCustomerConfirmationEmail}>Create</button>
                   </div>
                 </form>
 

@@ -113,7 +113,7 @@ app.get('/AdminConfirmation_email', (req,res) => {
      { subject: "There is a new feedback log! Please check it!",
        sender: sender,
        // recipient: '_ADMIN_EMAIL_',
-       recipient: '_ADMIN_EMAIL_',
+       recipient: 'andri_susanto@mymail.sutd.edu.sg',
        html: 'thank you' },
       json: true };
     request(options, function (error, response, body) {

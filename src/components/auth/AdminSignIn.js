@@ -8,7 +8,7 @@ export class AdminSignIn extends Component {
     email: '',
     emailError: false,
     password: '',
-    passwordError: false
+    passwordError: false,
   }
 
   handleChange = (e) => {
@@ -55,6 +55,8 @@ export class AdminSignIn extends Component {
 
   render() {
     const { authError, auth } = this.props;
+    const {email, password} = this.state;
+    const isEnabled = this.state.emailError == false && password.length >5;
     if (auth.uid) return<Redirect to='/dashboard' />
 
     return (
@@ -69,10 +71,10 @@ export class AdminSignIn extends Component {
           <div className="input-field">
             <label htmlFor="password">Password</label>
             <input type="password" id="password" class="validate" onChange={this.handleChange}/>
-            {this.state.passwordError ? <span style={{color: "red"}}>Please enter some   value</span> : ''}
+            {this.state.passwordError ? <span style={{color: "red"}}>Wrong Password</span> : ''}
           </div>
           <div className="input-field">
-            <button className="btn purple darken-3 text-white z-depth-0" id="button">Login</button>
+            <button disabled={!isEnabled} className="btn purple darken-3 text-white z-depth-0" id="button">Login</button>
             <div className="red-text center">
               { authError ? <p> {authError} </p> : null }
             </div>

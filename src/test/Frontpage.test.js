@@ -5,8 +5,8 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import renderer from 'react-test-renderer';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
+import { create } from "react-test-renderer";
 
 configure({ adapter: new Adapter() });
 describe('Number of', ()=> {
@@ -24,3 +24,10 @@ describe('Number of', ()=> {
     expect(wrapper.find(Link).at(1).props().to).toBe('/guesscustomerquery');
   });
 })
+
+describe("guesscustomerquery component", () => {
+  test("it matches the snapshot", () => {
+    const component = create(<guesscustomerquery />);
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});
