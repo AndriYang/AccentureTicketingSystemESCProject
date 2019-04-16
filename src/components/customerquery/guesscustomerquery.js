@@ -33,16 +33,22 @@ export class guesscustomerquery extends Component {
     title: '',
     content: '',
     email:'',
-    emailError:false,
+    emailError:true,
+    emailNoError: false,
     image: '',
     imageURL: '',
     phone: '',
-    phoneError:false,
+    phoneError:true,
+    phoneNoError:false,
     caseId:0,
     toggle:false,
     solveStatus:'',
     deadline:'',
-    addFormVisible: false
+    addFormVisible: false,
+    count: 1,
+    countError: false,
+    // time: 0,
+    // timeError: false
   }
 
   sendCustomerConfirmationEmail = _ => {
@@ -108,14 +114,50 @@ export class guesscustomerquery extends Component {
       error => {
         console.log('Creating user failed with error:', error);
       })
-});
-}else{
-  this.setState({deadline:last, caseId: uid1, solveStatus: "processing"}, function () {
-  console.log(this.state.caseId);
-  this.props.createTicket(this.state);
-  this.toggle();
-});
-}
+    });
+    }else{
+      this.setState({deadline:last, caseId: uid1, solveStatus: "processing"}, function () {
+      console.log(this.state.caseId);
+      this.props.createTicket(this.state);
+      this.toggle();
+    });
+    }
+
+    if (this.state.count>2){
+      this.setState({
+        countError: true
+      })
+    }
+    if (this.state.count <=3) {
+      this.setState({
+        count: this.state.count+1
+      })
+    }
+
+
+    // console.log(date.getMinutes());
+    // if (this.state.time==0){
+    //   this.setState({
+    //     time: date.getMinutes()
+    //   })
+    // }
+    // if (this.state.time !=0) {
+    //   const elapse = !((date.getMinutes()-this.state.time)<1);
+    //   if(elapse == true){
+    //     this.setState({
+    //       timeError: elapse,
+    //       time: 0
+    //     })
+    //   }
+    //   else{
+    //     this.setState({
+    //       timeError: elapse
+    //     })
+    //   }
+    //
+    // }
+    // console.log("timeError: " + this.state.timeError);
+    // console.log("time: " + this.state.time);
 }
 
   renderChatBot = () => {
@@ -304,11 +346,13 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
    if(result===true){
      this.setState({
        emailError:false,
+       emailNoError:false,
        email : email
      })
    }else{
      this.setState({
-       emailError:true
+       emailError:true,
+       emailNoError:true,
      })
    }
  }
@@ -316,16 +360,18 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
  validateNumber(phone){
    // const pattern = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
    // const pattern = /^\d{3}(\))?\d{3}\d{4}$/;
-   const pattern = /^\d{8}$/;
+   const pattern = /^\d{8,12}$/;
    const result = pattern.test(phone);
-   if(result==true){
+   if(result===true){
      this.setState({
        phoneError:false,
+       phoneNoError:false,
        phone: phone
      })
    }else{
      this.setState({
-       phoneError:true
+       phoneError:true,
+       phoneNoError:true,
      })
    }
  }
@@ -338,7 +384,8 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
       title.length > 0 &&
       content.length > 0 &&
       this.state.emailError == false &&
-      this.state.phoneError == false ;
+      this.state.phoneError == false &&
+      this.state.countError == false ;
     // if (!auth.uid) return<Redirect to='/signin' />
     return (
       <div className="container">
@@ -380,13 +427,13 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                       <div class="input-field col s12">
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" class="validate" onChange={this.handleChange}/>
-                        {this.state.emailError ? <span style={{color: "red"}}>Please Enter valid email address</span> : ''}
+                        {this.state.emailNoError ? <span style={{color: "red"}}>Please Enter valid email address</span> : ''}
                       </div>
                     </div>
                     <div className="input-field">
                       <label htmlFor="phone">Phone Number</label>
                       <input type="text" id="phone" class="validate" onChange={this.handleChange}/>
-                      {this.state.phoneError ? <span style={{color: "red"}}>Please Enter valid contact number</span> : ''}
+                      {this.state.phoneNoError ? <span style={{color: "red"}}>Please Enter valid contact number</span> : ''}
                     </div>
                   <div>
                     <label id= "category">Category:</label>
