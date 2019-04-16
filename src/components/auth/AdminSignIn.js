@@ -11,8 +11,8 @@ export class AdminSignIn extends Component {
     passwordError: false,
     count: 1,
     countError: false,
-    time:'',
-    timeError: false
+    // time:0,
+    // timeError: false
   }
 
   handleChange = (e) => {
@@ -52,18 +52,21 @@ export class AdminSignIn extends Component {
       })
     }
     // const createdAt= new Date();
-    // console.log(createdAt.toDate().format('LLL'));
-    // if (this.state.time==''){
+    // console.log(createdAt.getMinutes());
+    // if (this.state.time==0){
     //   this.setState({
-    //     time: createdAt.toDate().format('LLL')
+    //     time: createdAt.getMinutes()
     //   })
     // }
-    // if (this.state.time !='') {
-    //   const elapse = (createdAt.toDate().format('LLL')-this.state.time)==0;
+    // if (this.state.time !=0) {
+    //   const elapse = (createdAt.getMinutes()-this.state.time)<2;
+    //
     //   this.setState({
     //     timeError: elapse
     //   })
     // }
+    // console.log("timeError: " + this.state.timeError);
+    // console.log("time: " + this.state.time);
 
   }
 
@@ -105,7 +108,7 @@ export class AdminSignIn extends Component {
           <div className="input-field">
             <button disabled={!isEnabled} className="btn purple darken-3 text-white z-depth-0" id="button">Login</button>
             <div className="red-text center">
-              {this.state.countError ? <span style={{color: "red"}}>Denied Login. Please wait for 24 hours</span> : ''}
+              {this.state.countError ? <span style={{color: "red"}}>Denied Login. Please contact the security!</span> : ''}
               { authError ? <p> {authError} </p> : null }
             </div>
           </div>
