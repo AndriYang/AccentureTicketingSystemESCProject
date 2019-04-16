@@ -337,8 +337,8 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
       sel.length > 0 &&
       title.length > 0 &&
       content.length > 0 &&
-      email.length > 0 &&
-      phone.length > 0 ;
+      this.state.emailError == false &&
+      this.state.phoneError == false ;
     // if (!auth.uid) return<Redirect to='/signin' />
     return (
       <div className="container">

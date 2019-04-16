@@ -9,6 +9,10 @@ export class AdminSignIn extends Component {
     emailError: false,
     password: '',
     passwordError: false,
+    count: 1,
+    countError: false,
+    time:'',
+    timeError: false
   }
 
   handleChange = (e) => {
@@ -35,7 +39,32 @@ export class AdminSignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state.count);
     this.props.adminsignIn(this.state);
+    if (this.state.count>2){
+      this.setState({
+        countError: true
+      })
+    }
+    if (this.state.count <=3) {
+      this.setState({
+        count: this.state.count+1
+      })
+    }
+    // const createdAt= new Date();
+    // console.log(createdAt.toDate().format('LLL'));
+    // if (this.state.time==''){
+    //   this.setState({
+    //     time: createdAt.toDate().format('LLL')
+    //   })
+    // }
+    // if (this.state.time !='') {
+    //   const elapse = (createdAt.toDate().format('LLL')-this.state.time)==0;
+    //   this.setState({
+    //     timeError: elapse
+    //   })
+    // }
+
   }
 
   validateEmail(email){
@@ -56,7 +85,7 @@ export class AdminSignIn extends Component {
   render() {
     const { authError, auth } = this.props;
     const {email, password} = this.state;
-    const isEnabled = this.state.emailError == false && password.length >5;
+    const isEnabled = this.state.emailError == false && password.length >5 && this.state.countError == false;
     if (auth.uid) return<Redirect to='/dashboard' />
 
     return (
@@ -76,6 +105,7 @@ export class AdminSignIn extends Component {
           <div className="input-field">
             <button disabled={!isEnabled} className="btn purple darken-3 text-white z-depth-0" id="button">Login</button>
             <div className="red-text center">
+              {this.state.countError ? <span style={{color: "red"}}>Denied Login. Please wait for 24 hours</span> : ''}
               { authError ? <p> {authError} </p> : null }
             </div>
           </div>
