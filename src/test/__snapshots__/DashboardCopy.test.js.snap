@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard component it matches the snapshot 1`] = `
+<div
+  className="sc-bZQynM fhhqqT"
+>
+  <div
+    className="sc-htoDjs fHajFs"
+  >
+    <div
+      className="sc-EHOje chXdSi"
+    >
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa fMlwjV"
+          selected={true}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat crmRjJ"
+            selected={true}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            Home
+          </div>
+        </div>
+      </div>
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa jUQUWx"
+          selected={false}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat kVxbbl"
+            selected={false}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            All tickets
+          </div>
+        </div>
+      </div>
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa jUQUWx"
+          selected={false}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat kVxbbl"
+            selected={false}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            RealTime Chat
+          </div>
+        </div>
+      </div>
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa jUQUWx"
+          selected={false}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat kVxbbl"
+            selected={false}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            Notifications
+          </div>
+        </div>
+      </div>
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa jUQUWx"
+          selected={false}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat kVxbbl"
+            selected={false}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            Filter by Category
+          </div>
+        </div>
+      </div>
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa jUQUWx"
+          selected={false}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat kVxbbl"
+            selected={false}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            Filter by Progress
+          </div>
+        </div>
+      </div>
+      <div
+        onClick={[Function]}
+      >
+        <div
+          className="sc-bdVaJa jUQUWx"
+          selected={false}
+          style={Object {}}
+        >
+           
+          <div
+            className="sc-htpNat kVxbbl"
+            selected={false}
+            style={Object {}}
+          >
+            <i
+              fill="currentColor"
+              style={
+                Object {
+                  "display": "inline-block",
+                }
+              }
+            >
+              <svg
+                fill="currentColor"
+                height={16}
+                style={
+                  Object {
+                    "display": "inline-block",
+                    "verticalAlign": "middle",
+                  }
+                }
+                viewBox="0 0 24 24"
+                width={16}
+              >
+                <path
+                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"
+                />
+              </svg>
+            </i>
+          </div>
+          <div
+            className="sc-jTzLTM gGGooV"
+          >
+            Filter by Deadline
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="col"
+    className="sc-dnqmqq fZOEMv"
+  >
+    <div
+      className="dashboard container"
+    >
+      <div
+        class="row"
+      />
+      <div
+        class="divider"
+      />
+      <div>
+        <span
+          class="flow-text"
+        >
+          Tickets:
+        </span>
+      </div>
+      <div
+        class="divider"
+      />
+      <div
+        class="card purple lighten-5"
+      >
+        <div
+          className="col s12 m6"
+        >
+          <div
+            className="col s10 offset-s1 center-align"
+          >
+            <img
+              alt="Nothing was found"
+              id="nothing-was-found"
+              src="/img/nothing.png"
+            />
+            <h4>
+              You have completed all the tasks
+            </h4>
+            <p>
+              Start by clicking add button in the bottom of the screen
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`print the initial state 1`] = `
+Dashboard {
+  "context": undefined,
+  "handleCheckDeadline": [Function],
+  "handleCheckOther": [Function],
+  "handleCheckPassword": [Function],
+  "handleCheckProcessing": [Function],
+  "handleCheckRecruit": [Function],
+  "handleCheckRecruitment": [Function],
+  "handleCheckSolved": [Function],
+  "handleCheckTech": [Function],
+  "onItemSelection": [Function],
+  "props": undefined,
+  "refs": Object {},
+  "state": Object {
+    "addFormValue": "",
+    "addFormVisible": false,
+    "checkedDeadline": true,
+    "checkedOther": true,
+    "checkedPassword": true,
+    "checkedProcessing": true,
+    "checkedRecruit": true,
+    "checkedRecruitment": true,
+    "checkedSolved": true,
+    "checkedTech": true,
+    "selectedPath": "",
+  },
+  "updater": Object {
+    "enqueueForceUpdate": [Function],
+    "enqueueReplaceState": [Function],
+    "enqueueSetState": [Function],
+    "isMounted": [Function],
+  },
+}
+`;

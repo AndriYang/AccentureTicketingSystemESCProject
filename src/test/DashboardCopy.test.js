@@ -1,4 +1,4 @@
-import {Dashboard} from '../components/dashboard/Dashboard'
+import {Dashboard} from '../components/dashboard/DashboardCopy'
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import { configure } from 'enzyme';
@@ -15,18 +15,6 @@ it('print the initial state',() => {
 })
 
 
-describe('Number of', ()=> {
-  const wrapper = shallow(<Dashboard />);
-
-  it('There are 4 selectors', function() {
-    expect(wrapper.find('#box1').length).toBe(4);
-  });
-
-  it('always renders a Notification', function() {
-    expect(wrapper.find('Notifications').length).toBe(1);
-  });
-
-})
 
 
 

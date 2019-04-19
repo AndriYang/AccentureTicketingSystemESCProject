@@ -169,11 +169,11 @@ export class Dashboard extends Component {
       return (
         <div className="row s8 m2" >
         <div id="status" onClick={this.handleCheckProcessing}>
-        <button className={this.state.checkedProcessing ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} >
+        <button className={this.state.checkedProcessing ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot">
         Processing
         </button></div>
         <div id="status" onClick={this.handleCheckSolved}>
-        <button className={this.state.checkedSolved ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} >
+        <button className={this.state.checkedSolved ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} id="open-chat-bot">
         Solved
         </button></div>
         </div>
