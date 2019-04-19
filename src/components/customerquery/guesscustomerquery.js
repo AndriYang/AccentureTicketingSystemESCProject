@@ -360,7 +360,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
  validateNumber(phone){
    // const pattern = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
    // const pattern = /^\d{3}(\))?\d{3}\d{4}$/;
-   const pattern = /^\d{8,12}$/;
+   const pattern = /^\d{8,10}$/;
    const result = pattern.test(phone);
    if(result===true){
      this.setState({
@@ -390,7 +390,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
     return (
       <div className="container">
 
-      <form className="white" id="submit-case-id">
+      <form className="white formQuery" id="submit-case-id">
         <h5 className="grey-text text-darken-3  purple lighten-5">Status</h5>
       <div className="input-field">
         <label htmlFor="intpuCaseId">Already have a case ID?</label>
@@ -413,7 +413,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
       </Drawer>
 
         <div >
-                <form onSubmit={this.handleSubmit} className="white" id="createForm">
+                <form onSubmit={this.handleSubmit} className="white formQuery" id="createForm">
                   <h5 className="grey-text text-darken-3  purple lighten-5">Contact Us</h5>
                     <div className="input-field">
                       <label htmlFor="authorFirstName">First Name</label>
