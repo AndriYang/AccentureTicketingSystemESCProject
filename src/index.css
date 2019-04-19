@@ -20,7 +20,17 @@ body {
 form{
   padding: 20px;
   margin-top: 60px;
+}
+
+.formQuery{
+  padding: 20px;
+  margin-top: 60px;
   background: url(/img/v9.3.jpg) no-repeat;
+}
+
+textarea {
+  width: default;
+  height: 250px;
 }
 
 .form-background{

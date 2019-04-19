@@ -87,7 +87,10 @@ export class NewReplyQuery extends Component {
                 <br />
                 <textarea id="textarea" rows={3} value={email.text, text.textmessage}
                   onChange={e => this.setState({
-                    email: { ...email, text: e.target.value },
+                    email: { ...email, text: "Hi " + this.props.location.state.authorFirstName +"," +'<br /><br />'
+                      + e.target.value.replace(/(?:\r\n|\r|\n)/g, '<br />')
+                      +"<br /><br /> Best regards, <br />" 
+                      + this.props.profile.firstName + " " + this.props.profile.lastName },
                     text: {...text, textmessage: e.target.value} })} />
                 <div  />
                 <div class="row">
@@ -108,4 +111,11 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewReplyQuery);
+const mapStateToProps = (state) => {
+  //console.log(state);
+  return {
+    profile: state.firebase.profile
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewReplyQuery);
