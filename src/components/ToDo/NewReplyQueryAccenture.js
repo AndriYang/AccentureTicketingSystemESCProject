@@ -75,24 +75,30 @@ export class NewReplyQuery extends Component {
                 <label> Sender </label>
                 <h6>{this.props.location.state.authEmail}</h6>
                 <br />
+                <label> Customer Phone Number </label>
+                  <br/>
+                  <h6>{this.props.location.state.phone}</h6>
+                <br />
                 <label> Subject </label>
                 <br />
                 <input value={email.subject}
                   onChange={e => this.setState({ email: { ...email, subject: e.target.value } })} />
                 <div  />
-                <label> Your Phone Number </label>
-                  <br/>
-                  <h6>{this.props.location.state.phone}</h6>
+
                 <label> Message </label>
                 <br />
+                <h6> Hi {this.props.location.state.authorFirstName},</h6>
+
                 <textarea id="textarea" rows={3} value={email.text, text.textmessage}
                   onChange={e => this.setState({
                     email: { ...email, text: "Hi " + this.props.location.state.authorFirstName +"," +'<br /><br />'
                       + e.target.value.replace(/(?:\r\n|\r|\n)/g, '<br />')
-                      +"<br /><br /> Best regards, <br />" 
+                      +"<br /><br /> Best regards, <br />"
                       + this.props.profile.firstName + " " + this.props.profile.lastName },
                     text: {...text, textmessage: e.target.value} })} />
                 <div  />
+
+                <h6>Best regards, <br/> {this.props.profile.firstName} {this.props.profile.lastName} </h6>
                 <div class="row">
                   <div >
                     <button class="btn-small purple darken-3" id="emailBtn" onClick={this.sendEmail}><i class="large material-icons">mail_outline</i> Reply </button>
