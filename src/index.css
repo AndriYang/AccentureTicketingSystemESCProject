@@ -23,9 +23,12 @@ form{
 }
 
 .formQuery{
-  padding: 20px;
+
   margin-top: 60px;
   background: url(/img/v9.3.jpg) no-repeat;
+  background-size: cover;
+  padding: 150px;
+
 }
 
 textarea {

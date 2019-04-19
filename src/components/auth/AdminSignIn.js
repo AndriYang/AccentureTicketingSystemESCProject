@@ -93,15 +93,15 @@ export class AdminSignIn extends Component {
 
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white" id="adminLoginForm">
-          <h5 className="grey-text text-darken-3">Sign in</h5>
+        <form onSubmit={this.handleSubmit} className="white formQuery" id="adminLoginForm">
+          <h5 className="text-white  purple darken-3">Sign in</h5>
           <div className="input-field">
-            <label htmlFor="email" name="emaillable">someone@accenture.com</label>
+            <label className="grey-text text-darken-3" htmlFor="email" name="emaillable">someone@accenture.com</label>
             <input type="email" name= "email" id= "email"  class="validate" onChange={this.handleChange}/>
             {this.state.emailError ? <span style={{color: "red"}}>Please Enter valid email address</span> : ''}
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
+            <label className="grey-text text-darken-3" htmlFor="password">Password</label>
             <input type="password" id="password" class="validate" onChange={this.handleChange}/>
             {this.state.passwordError ? <span style={{color: "red"}}>Wrong Password</span> : ''}
           </div>

@@ -391,9 +391,9 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
       <div className="container">
 
       <form className="white formQuery" id="submit-case-id">
-        <h5 className="grey-text text-darken-3  purple lighten-5">Status</h5>
+        <h5 className="text-white  purple darken-3">Status</h5>
       <div className="input-field">
-        <label htmlFor="intpuCaseId">Already have a case ID?</label>
+        <label className="grey-text text-darken-3" htmlFor="intpuCaseId">Already have a case ID?</label>
         <input type="text" id="input-case-id" onChange={this.handleChangeCaseID}/>
       </div>
       <div>
@@ -414,29 +414,29 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
 
         <div >
                 <form onSubmit={this.handleSubmit} className="white formQuery" id="createForm">
-                  <h5 className="grey-text text-darken-3  purple lighten-5">Contact Us</h5>
+                  <h5 className="text-white  purple darken-3">Contact Us</h5>
                     <div className="input-field">
-                      <label htmlFor="authorFirstName">First Name</label>
+                      <label className="grey-text text-darken-3" htmlFor="authorFirstName">First Name</label>
                       <input type="text" id="authorFirstName" onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
-                      <label htmlFor="authorLastName">Last Name</label>
+                      <label className="grey-text text-darken-3" htmlFor="authorLastName">Last Name</label>
                       <input type="text" id="authorLastName" onChange={this.handleChange}/>
                     </div>
                     <div class="row">
                       <div class="input-field col s12">
-                        <label htmlFor="email">Email</label>
+                        <label className="grey-text text-darken-3" htmlFor="email">Email</label>
                         <input type="email" id="email" class="validate" onChange={this.handleChange}/>
                         {this.state.emailNoError ? <span style={{color: "red"}}>Please Enter valid email address</span> : ''}
                       </div>
                     </div>
                     <div className="input-field">
-                      <label htmlFor="phone">Phone Number</label>
+                      <label className="grey-text text-darken-3" htmlFor="phone">Phone Number</label>
                       <input type="text" id="phone" class="validate" onChange={this.handleChange}/>
                       {this.state.phoneNoError ? <span style={{color: "red"}}>Please Enter valid contact number</span> : ''}
                     </div>
                   <div>
-                    <label id= "category">Category:</label>
+                    <label className="grey-text text-darken-3" id= "category">Category:</label>
                     <select class="browser-default" id= "sel" onChange={this.handleChange}>
                       <option value="" disabled selected>Choose your category</option>
                       <option value="finance">Finance</option>
@@ -447,11 +447,11 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                     </select>
                   </div>
                   <div className="input-field">
-                    <label htmlFor="title">Title</label>
+                    <label className="grey-text text-darken-3" htmlFor="title">Title</label>
                     <input type="text" id="title" onChange={this.handleChange}/>
                   </div>
                   <div className="input-field">
-                    <label htmlFor="content">Ticket Content</label>
+                    <label className="grey-text text-darken-3" htmlFor="content">Ticket Content</label>
                     <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
                   </div>
                   {this.state.isUploading && <p>Progress: {this.state.progress}</p>}
