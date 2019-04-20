@@ -22,6 +22,7 @@ app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it
 // const authToken = '_AUTH_TOKEN';
 const accountID= '_ACCOUNT_ID';
 const authToken = '_AUTH_TOKEN';
+
 const client = new twilio(accountID, authToken);
 
 app.get('/send-text', (req, res) => {
@@ -82,7 +83,7 @@ app.get('/confirmation_email', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace_with_your_own_server_token'},
-       'Server-Token': 'replace_with_your_own_server_tokenn'},
+       'Server-Token': 'replace_with_your_own_server_token'},
       body:
      { subject: "Thank you for sending us your feedback",
        sender: '100@accenture.com',
@@ -108,8 +109,7 @@ app.get('/AdminConfirmation_email', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace-with-your-own-server-token'},
-       'Server-Token': 'replace_with_your_own_server_tokenn'},
-      body:
+       'Server-Token': 'replace_with_your_own_server_token'},
      { subject: "There is a new feedback log! Please check it!",
        sender: sender,
        // recipient: '_ADMIN_EMAIL_',
@@ -128,6 +128,7 @@ app.get('/AdminConfirmation_email', (req,res) => {
 // const apiKey = '_API_KEY';
 var appID = "_APP_ID";
 var apiKey = "_API_KEY";
+
 const agentUID = 'Agent';
 
 const url = 'https://api.cometchat.com/v1';

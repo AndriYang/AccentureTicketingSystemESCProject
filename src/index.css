@@ -44,6 +44,13 @@ textarea {
   background-size: cover;
 }
 
+.aboutus-background{
+  padding: 100px;
+  margin-top: 0px;
+  background: url(/img/two.png) no-repeat;
+  background-size: cover;
+}
+
 form button, form h5{
   margin: 20px 0;
 }

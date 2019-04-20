@@ -16,6 +16,9 @@ const agentUID = config.agentUID;
 const CUSTOMER_MESSAGE_LISTENER_KEY = "client-listener";
 const limit = 30;
 
+var appID = "1424e7726e315b";
+var apiKey = "8bc644764d77f50ef8661660302e0fd6623f4fb4";
+
 
 
 const divStyle = {
