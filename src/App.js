@@ -13,6 +13,7 @@ import About from './components/frontpage/About'
 import NewReplyQuery from './components/ToDo/NewReplyQueryAccenture'
 import Agent from './components/real-time-chat/Agent'
 import CustomerDashboard from './components/customerquery/customerDashboard'
+import Sales from './components/dashboard/learnDashboard'
 
 
 
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path='/reply' component={NewReplyQuery} />
             <Route path='/realtimechatagent' component = {Agent} />
             <Route path='/customerdashboard' component = {CustomerDashboard} />
+            <Route path='/sales' component = {Sales} />
           </Switch>
         </div>
       </BrowserRouter>
