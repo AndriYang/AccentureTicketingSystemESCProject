@@ -15,6 +15,5 @@ export const changeStatus = (status) => {
       }).catch((err) => {
       dispatch({ type: 'STATUS_CHANGE_ERROR', err});
     })
-
   }
 };

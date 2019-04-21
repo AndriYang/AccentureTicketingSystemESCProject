@@ -7,6 +7,7 @@ import formReducer from './formReducer'
 import replyReducer from './replyReducer'
 import ticketReducer from './ticketReducer'
 import statusReducer from './statusReducer'
+import visualizeReducer from './visualizeReducer'
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   form: formReducer,
   reply: replyReducer,
   ticket: ticketReducer,
-  status: statusReducer
+  status: statusReducer,
+  visualize: visualizeReducer
 });
 
 export default rootReducer
