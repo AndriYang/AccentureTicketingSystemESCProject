@@ -15,6 +15,7 @@ import { ic_reorder as simple } from "react-icons-kit/md/ic_reorder";
 import { ic_donut_large as render } from "react-icons-kit/md/ic_donut_large";
 import { MemoryRouter as Router, Route, Switch } from "react-router-dom";
 import { AppContainer, Navigation, Body, Title } from "./containers";
+import Sales from "./learnDashboard"
 
 
 const Text = styled.div`
@@ -123,7 +124,7 @@ export class Dashboard extends Component {
   }
 
   renderNotifications(){
-    if(this.state.selectedPath=="notifications"){
+    if(this.state.selectedPath=="home"){
       const { projects, auth, notifications } = this.props;
       return(
         <div>
@@ -194,6 +195,14 @@ export class Dashboard extends Component {
     }
   }
 
+  renderDashboard(){
+    if(this.state.selectedPath=="home"){
+      return (
+        <Sales />
+      )
+    }
+  }
+
   render() {
     //console.log(this.props);
     const { projects, auth, notifications } = this.props;
@@ -221,12 +230,6 @@ export class Dashboard extends Component {
             <Icon icon={render} />
           </NavIcon>
           <Text>RealTime Chat</Text>
-        </Nav>
-        <Nav id="notifications">
-          <NavIcon>
-            <Icon icon={render} />
-          </NavIcon>
-          <Text>Notifications</Text>
         </Nav>
         <Nav id="filtercategory">
           <NavIcon>
@@ -256,6 +259,7 @@ export class Dashboard extends Component {
             {this.renderCheckBoxesCat()}
             {this.renderNotifications()}
             {this.renderCheckBoxesDDL()}
+            {this.renderDashboard()}
               </div>
               <div class="divider"></div>
               <div><span class="flow-text">Tickets:</span></div>

@@ -18,6 +18,7 @@ import _ from "lodash";
 import styled from "styled-components";
 import { MemoryRouter as Router, Route, Switch } from "react-router-dom";
 import { AppContainer, Navigation, Body, Title } from "./containers";
+import './Sales.css';
 
 import SalesData from './data/salesDataClass'
 
@@ -44,7 +45,7 @@ class Sales extends Component {
 
     })
   }
-  
+
   renderHeader=()=>{
     const date = new Date();
     const year = date.getYear();

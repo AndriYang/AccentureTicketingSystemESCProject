@@ -180,8 +180,8 @@ export class guesscustomerquery extends Component {
 };
 
 componentDidMount() {
-  addResponseMessage('Welcome to our store!');
-  addResponseMessage('Are you looking for anything in particular?');
+  addResponseMessage('Welcome to our platform!');
+  addResponseMessage('How can we help you?');
   localStorage.clear();
 
   let uid = localStorage.getItem("cc-uid");
@@ -483,7 +483,7 @@ handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
                 <div>
                 <Widget
                   handleNewUserMessage={this.handleNewUserMessage}
-                  title='My E-commerce Live Chat'
+                  title='Accenture Support Live Chat'
                   subtitle='Ready to help you'
                 />
 
