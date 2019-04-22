@@ -24,7 +24,8 @@ var apiKey = "8bc644764d77f50ef8661660302e0fd6623f4fb4";
 export class CustomerDashboard extends Component {
   state = {
     addFormVisible: false,
-    addFormValue: ""
+    addFormValue: "",
+    renderErrorMessage: false
   };
 
   componentDidMount() {
@@ -45,11 +46,11 @@ export class CustomerDashboard extends Component {
            console.log("Login successfully:", { user });
            this.createMessageListener();
            this.fetchPreviousMessages();
-
         })
        },
        error => {
          console.log('Initialization failed with error:', error);
+         this.setState({renderErrorMessage: true})
        }
      );
    }
@@ -163,13 +164,32 @@ export class CustomerDashboard extends Component {
     const { projects } = this.props;
     var caseId = this.props.history.location.state.caseId;
     localStorage.setItem("cc-uid",caseId);
-    const toDos = _.map(projects, (value, key) => {
-      return(
-      <div>
-        <NewToDoListItem key={key} todoId={key} todo={value} caseId={caseId}/>
-      </div>
-    );});
-    return toDos;
+    var valid = false;
+    if(projects!=undefined){
+      for (var i = 0; i < projects.length; i++){
+        if (projects[i].caseId==caseId){
+          valid = true;
+        }
+      }
+      if(!valid){
+          return(<Redirect to='/invalidCaseId' />)
+      }else{
+        const toDos = _.map(projects, (value, key) => {
+          return(
+          <div>
+            <NewToDoListItem key={key} todoId={key} todo={value} caseId={caseId}/>
+            <Widget
+              handleNewUserMessage={this.handleNewUserMessage}
+              title='My E-commerce Live Chat'
+              subtitle='Ready to help you'
+            />
+          </div>
+        );});
+        console.log(toDos)
+        return toDos;
+      }
+    }
+    else return null;
   }
 
 
@@ -180,21 +200,12 @@ export class CustomerDashboard extends Component {
     //console.log(this.props);
     const { projects, auth } = this.props;
     // if (!auth.uid) return<Redirect to='/' />
-
     return (
       <div className="dashboard container">
         <div className="column">
           <div className="col s12 m6">
             {this.renderToDos()}
           </div>
-        </div>
-        <div>
-        <Widget
-          handleNewUserMessage={this.handleNewUserMessage}
-          title='My E-commerce Live Chat'
-          subtitle='Ready to help you'
-        />
-
         </div>
       </div>
     )

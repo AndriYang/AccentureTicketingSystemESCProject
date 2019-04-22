@@ -55,7 +55,7 @@ app.get('/express_backend', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace_with_your_own_server_tokenn'},
-       'Server-Token': 'replace_with_your_own_server_tokenn'},
+       'Server-Token': 'replace_with_your_own_server_token'},
       body:
      { subject: topic,
        sender: sender,
@@ -82,7 +82,7 @@ app.get('/confirmation_email', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace_with_your_own_server_token'},
-       'Server-Token': 'replace_with_your_own_server_tokenn'},
+       'Server-Token': 'replace_with_your_own_server_token'},
       body:
      { subject: "Thank you for sending us your feedback",
        sender: '100@accenture.com',
@@ -108,7 +108,7 @@ app.get('/AdminConfirmation_email', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace-with-your-own-server-token'},
-       'Server-Token': 'replace_with_your_own_server_tokenn'},
+       'Server-Token': 'replace_with_your_own_server_token'},
       body:
      { subject: "New feedback log!",
        sender: sender,
@@ -141,7 +141,7 @@ const headers = {
 app.get('/api/create', (req, res) => {
   const data = {
     uid: new Date().getTime(),
-    name: (new Date().getTime()).toString()
+    name: req.query.name+(new Date().getTime()).toString().slice(9)
   };
   axios
     .post(`${url}/users`, JSON.stringify(data), {

@@ -94,10 +94,6 @@ export class guesscustomerquery extends Component {
     var last = new Date(date.getTime() + (days * 24 * 60 * 60 * 1000));
     e.preventDefault();
     //console.log(this.state)
-    var uid1 = localStorage.getItem("cc-uid");
-    console.log("uid in handlesubmit is ",uid1);
-
-    if (uid1 === null) {
       console.log("creating a new user.");
       this.createUser().then(
         result => {
@@ -118,13 +114,6 @@ export class guesscustomerquery extends Component {
         console.log('Creating user failed with error:', error);
       })
     });
-    }else{
-      this.setState({deadline:last, caseId: uid1, solveStatus: "processing"}, function () {
-      console.log(this.state.caseId);
-      this.props.createTicket(this.state);
-      this.toggle();
-    });
-    }
 
     if (this.state.count>2){
       this.setState({
@@ -214,7 +203,7 @@ fetchAuthToken = async uid => {
 }
 
 createUser = async () => {
-  const response = await fetch(`/api/create`)
+  const response = await fetch(`/api/create?name=${this.state.authorFirstName}`)
   const result = await response.json()
   return result;
 }
