@@ -22,7 +22,6 @@ app.use(cors()); //utilize Cors so the browser doesn't restrict data, without it
 // const authToken = '_AUTH_TOKEN';
 const accountID= '_ACCOUNT_ID';
 const authToken = '_AUTH_TOKEN';
-
 const client = new twilio(accountID, authToken);
 
 app.get('/send-text', (req, res) => {
@@ -83,12 +82,12 @@ app.get('/confirmation_email', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace_with_your_own_server_token'},
-       'Server-Token': 'replace_with_your_own_server_token'},
+       'Server-Token': 'replace_with_your_own_server_tokenn'},
       body:
      { subject: "Thank you for sending us your feedback",
        sender: '100@accenture.com',
        recipient: recipient,
-       html: 'thank you' },
+       html: 'Thank you. We will review your feedback as soon as possible' },
       json: true };
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
@@ -109,12 +108,13 @@ app.get('/AdminConfirmation_email', (req,res) => {
        'cache-control': 'no-cache',
        'Content-Type': 'application/json',
        //'Server-Token': 'replace-with-your-own-server-token'},
-       'Server-Token': 'replace_with_your_own_server_token'},
-     { subject: "There is a new feedback log! Please check it!",
+       'Server-Token': 'replace_with_your_own_server_tokenn'},
+      body:
+     { subject: "New feedback log!",
        sender: sender,
        // recipient: '_ADMIN_EMAIL_',
        recipient: '_ADMIN_EMAIL_',
-       html: 'thank you' },
+       html: 'There is a new feedback log! Please check it!' },
       json: true };
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
@@ -128,7 +128,6 @@ app.get('/AdminConfirmation_email', (req,res) => {
 // const apiKey = '_API_KEY';
 var appID = "_APP_ID";
 var apiKey = "_API_KEY";
-
 const agentUID = 'Agent';
 
 const url = 'https://api.cometchat.com/v1';

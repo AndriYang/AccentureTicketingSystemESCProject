@@ -15,6 +15,7 @@ import { ic_reorder as simple } from "react-icons-kit/md/ic_reorder";
 import { ic_donut_large as render } from "react-icons-kit/md/ic_donut_large";
 import { MemoryRouter as Router, Route, Switch } from "react-router-dom";
 import { AppContainer, Navigation, Body, Title } from "./containers";
+import Agent from '../real-time-chat/Agent';
 import Sales from "./learnDashboard"
 
 
@@ -39,8 +40,7 @@ export class Dashboard extends Component {
     checkedOther: true,
     selectedPath:'',
     checkedProcessing:true,
-    checkedSolved:true,
-    checkedDeadline:true
+    checkedSolved:true
   };
 
   onItemSelection = (arg) => {
@@ -72,26 +72,29 @@ export class Dashboard extends Component {
   handleCheckSolved = event =>{
     this.setState({checkedSolved: !this.state.checkedSolved});
   }
-  handleCheckDeadline = event =>{
-    this.setState({checkedDeadline: !this.state.checkedDeadline});
-  }
+
   renderToDos() {
     const { projects } = this.props;
     const toDos = _.map(projects, (value, key) => {
-      return(
-      <div>
-        <NewToDoListItem key={key} todoId={key} todo={value}
-        checkedDeadline={this.state.checkedDeadline}
-          checkedTech={this.state.checkedTech}
-          checkedRecruit={this.state.checkedRecruit}
-          checkedRecruitment={this.state.checkedRecruitment}
-          checkedPassword={this.state.checkedPassword}
-          checkedOther={this.state.checkedOther}
-          checkedProcessing={this.state.checkedProcessing}
-          checkedSolved={this.state.checkedSolved}
-          criteria={this.state.selectedPath}/>
-      </div>
-    );});
+      if(this.state.selectedPath=="home" | this.state.selectedPath=="realTimeChat" ){
+        return null
+      }
+      else{
+        return(
+        <div>
+          <NewToDoListItem key={key} todoId={key} todo={value}
+            checkedTech={this.state.checkedTech}
+            checkedRecruit={this.state.checkedRecruit}
+            checkedRecruitment={this.state.checkedRecruitment}
+            checkedPassword={this.state.checkedPassword}
+            checkedOther={this.state.checkedOther}
+            checkedProcessing={this.state.checkedProcessing}
+            checkedSolved={this.state.checkedSolved}
+            criteria={this.state.selectedPath}/>
+        </div>
+      );
+    }
+  });
 
 
     if (!_.isEmpty(toDos)) {
@@ -114,9 +117,9 @@ export class Dashboard extends Component {
     console.log("in realtimechat")
     if(this.state.selectedPath=="realTimeChat"){
       return(
-
-        <Redirect to='/realtimechatagent' />
-
+        <div className="col">
+          <Agent/>
+        </div>
       )
     }else{
       return null
@@ -187,9 +190,9 @@ export class Dashboard extends Component {
       return (
         <div className="row s8 m2" >
         <div id="status" onClick={this.handleCheckDeadline}>
-        <button className={this.state.checkedDeadline ? "btn purple lighten-1 text-white":"btn purple lighten-3 text-white"} >
+        <label className={"btn purple lighten-1 text-white"} >
         Showing ddl Within 3 days:
-        </button></div>
+      </label></div>
         </div>
       )
     }
@@ -198,7 +201,9 @@ export class Dashboard extends Component {
   renderDashboard(){
     if(this.state.selectedPath=="home"){
       return (
-        <Sales />
+        <div className="col-xs-9 col-sm-9 col-md-9 col-lg-12 col-xl-12">
+          <Sales />
+        </div>
       )
     }
   }

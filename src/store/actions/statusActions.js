@@ -9,8 +9,8 @@ export const changeStatus = (status) => {
     console.log("hi " +caseId);
     var doc = firestore.collection("projects").doc(status.id);
     doc.set({
-      ...status,
-      solveStatus: "solved"}).then(()=>{
+      ...status
+      }).then(()=>{
         dispatch({ type: 'STATUS_CHANGE', status });
       }).catch((err) => {
       dispatch({ type: 'STATUS_CHANGE_ERROR', err});

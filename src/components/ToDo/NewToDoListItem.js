@@ -64,7 +64,7 @@ class NewToDoListItem extends Component {
         phone: todo.phone,
         caseId:todo.caseId,
         toggle:todo.toggle,
-        solveStatus:todo.solveStatus,
+        solveStatus:"solved",
         createdAt:todo.createdAt,
         id: todo.id,
         deadline: todo.deadline
@@ -87,11 +87,11 @@ class NewToDoListItem extends Component {
         phone: todo.phone,
         caseId:todo.caseId,
         toggle:todo.toggle,
-        solveStatus:todo.solveStatus,
+        solveStatus:"solved",
         createdAt:todo.createdAt,
         id: todo.id
         }, function () {
-        console.log(this.state.solveStatus);
+        console.log("status selected: " +this.state.solveStatus);
         this.props.changeStatus(this.state);
       })
     }
@@ -253,7 +253,7 @@ render() {
   }else if(criteria=="filterdeadline"){
     var mydate = todo.deadline;
     var date = new Date();
-    if ((todo.deadline.toDate().getTime() - (3 * 24 * 60 * 60 * 1000)<date.getTime())){
+    if ((todo.deadline.toDate().getTime() - (3 * 24 * 60 * 60 * 1000)<date.getTime()) && todo.solveStatus == "processing"){
       return(
         <div>
         {this.renderCard()}
