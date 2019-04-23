@@ -33,6 +33,22 @@ configure({ adapter: new Adapter() });
         }
       )
 
+      wrapper.find('#email').simulate(
+        'change',
+        {target:
+          {id: 'count', value: '1'}
+
+        }
+      )
+
+      wrapper.find('#email').simulate(
+        'change',
+        {target:
+          {id: 'countError', value: false}
+
+        }
+      )
+
       //fill in password field with test1234
       wrapper.find('#password').simulate(
         'change',
@@ -58,7 +74,7 @@ configure({ adapter: new Adapter() });
       console.log(mockLoginfn.mock.calls[0][0]);
       //test to see arguments used after its been submitted
       expect(mockLoginfn.mock.calls[0][0]).toEqual(
-        {email: '100@accenture.com', emailError: false, password: 'test1234', passwordError: false}
+        {email: '100@accenture.com', emailError: false, count:'1', countError: false, password: 'test1234', passwordError: false}
       )
     })
 

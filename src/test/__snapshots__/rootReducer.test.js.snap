@@ -49,6 +49,7 @@ Object {
   },
   "form": Object {},
   "reply": Object {},
+  "status": Object {},
   "ticket": Object {
     "projects": Array [
       Object {

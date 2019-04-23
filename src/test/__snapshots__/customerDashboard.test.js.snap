@@ -12,6 +12,7 @@ CustomerDashboard {
   "state": Object {
     "addFormValue": "",
     "addFormVisible": false,
+    "renderErrorMessage": false,
   },
   "updater": Object {
     "enqueueForceUpdate": [Function],

@@ -194,53 +194,6 @@ exports[`Dashboard component it matches the snapshot 1`] = `
           <div
             className="sc-jTzLTM gGGooV"
           >
-            Notifications
-          </div>
-        </div>
-      </div>
-      <div
-        onClick={[Function]}
-      >
-        <div
-          className="sc-bdVaJa jUQUWx"
-          selected={false}
-          style={Object {}}
-        >
-           
-          <div
-            className="sc-htpNat kVxbbl"
-            selected={false}
-            style={Object {}}
-          >
-            <i
-              fill="currentColor"
-              style={
-                Object {
-                  "display": "inline-block",
-                }
-              }
-            >
-              <svg
-                fill="currentColor"
-                height={16}
-                style={
-                  Object {
-                    "display": "inline-block",
-                    "verticalAlign": "middle",
-                  }
-                }
-                viewBox="0 0 24 24"
-                width={16}
-              >
-                <path
-                  d="M11 5.08V2c-5 .5-9 4.81-9 10s4 9.5 9 10v-3.08c-3-.48-6-3.4-6-6.92s3-6.44 6-6.92zM18.97 11H22c-.47-5-4-8.53-9-9v3.08C16 5.51 18.54 8 18.97 11zM13 18.92V22c5-.47 8.53-4 9-9h-3.03c-.43 3-2.97 5.49-5.97 5.92z"
-                />
-              </svg>
-            </i>
-          </div>
-          <div
-            className="sc-jTzLTM gGGooV"
-          >
             Filter by Category
           </div>
         </div>
@@ -395,7 +348,6 @@ exports[`Dashboard component it matches the snapshot 1`] = `
 exports[`print the initial state 1`] = `
 Dashboard {
   "context": undefined,
-  "handleCheckDeadline": [Function],
   "handleCheckOther": [Function],
   "handleCheckPassword": [Function],
   "handleCheckProcessing": [Function],
@@ -409,7 +361,6 @@ Dashboard {
   "state": Object {
     "addFormValue": "",
     "addFormVisible": false,
-    "checkedDeadline": true,
     "checkedOther": true,
     "checkedPassword": true,
     "checkedProcessing": true,

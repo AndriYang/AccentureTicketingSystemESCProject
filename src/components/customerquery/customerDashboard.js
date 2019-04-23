@@ -29,8 +29,8 @@ export class CustomerDashboard extends Component {
   };
 
   componentDidMount() {
-    addResponseMessage('Welcome to our store!');
-    addResponseMessage('Are you looking for anything in particular?');
+    addResponseMessage('Welcome to our platform!');
+    addResponseMessage('How can we help you?');
 
     let uid = localStorage.getItem("cc-uid");
     console.log("Component did mount.");
@@ -180,7 +180,7 @@ export class CustomerDashboard extends Component {
             <NewToDoListItem key={key} todoId={key} todo={value} caseId={caseId}/>
             <Widget
               handleNewUserMessage={this.handleNewUserMessage}
-              title='My E-commerce Live Chat'
+              title='Accenture Live Chat'
               subtitle='Ready to help you'
             />
           </div>
